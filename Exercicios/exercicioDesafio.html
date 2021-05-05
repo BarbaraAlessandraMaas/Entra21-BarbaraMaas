@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Desafio</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 17
+        let numero = Number(prompt("Digite um número para obter sua sequência:"))
+        console.log(`Número digitado: ${numero}\nSequência: ${numero - 1}, ${numero}, ${numero + 1}\n\n`)
+
+        //Exercício 18
+        let raio = Number(prompt("Informe o raio:"))
+        const PI = 3.14159
+        let volume
+
+        if (raio > 0) {
+            volume = (4/3) * PI * (raio**3)
+            console.log(`O volume da esfera de raio ${raio} é: ${volume.toFixed(2)}\n\n`)
+        } else {
+            alert("O raio da esfera não pode ser negativo ou nulo!")
+            console.log("Valor do raio incorreto!\n\n")
+        }
+
+        //Exercício 19
+        let base = Number(prompt("Digite um valor para a base do triângulo:"))
+        let altura = Number(prompt("Digite um valor para a altura do triângulo:"))
+        let area
+
+        if(base > 0 && altura > 0) {
+            area = (base * altura) / 2
+            console.log(`A área de um triângulo de base ${base} e altura ${altura} é: ${area}\n\n`)
+        } else {
+            alert("As medidas do triângulo não podem ser negativas ou nulas!")
+            console.log("Valor incorreto das medidas do triângulo!\n\n")
+        }
+
+        //Exercício 20
+        let preco = Number(prompt("Digite o preço do produto:"))
+        let desconto = Number(prompt("Digite o percentual de desconto do produto:"))
+        let valorPagar
+        let valorDesconto
+
+        if (preco > 0 && desconto >= 0) {
+            valorDesconto = (desconto / 100) * preco
+            valorPagar = preco - valorDesconto
+            console.log(`O valor total a pagar é de R$${valorPagar.toFixed(2)}\nO desconto de ${desconto}% resultou em R$${valorDesconto.toFixed(2)}\n\n`)
+        } else {
+            alert("O preço deve ser maior do que 0, e o desconto não pode ser negativo!")
+            console.log("Preço ou desconto inválidos!\n\n")
+        }
+
+        //Exercício 21
+        let nomeVendedor = String(prompt("Informe o nome do vendedor:"))
+        let salarioFixo = Number(prompt("Informe o salário fixo do vendedor:"))
+        let valorVenda = Number(prompt("Informe o valor do total de vendas do vendedor:"))
+
+        if(salarioFixo > 0 && valorVenda >= 0) {
+            let valorComissao = (15 / 100) * valorVenda
+            let totalGanho = salarioFixo + valorComissao
+            console.log(`Nome do vendedor: ${nomeVendedor}\nSalário fixo: R$${salarioFixo.toFixed(2)}\nValor da comissão: R$${valorComissao.toFixed(2)}\nTotal ganho: R$${totalGanho.toFixed(2)}\n\n`)
+        } else {
+            alert("O salário fixo deve ser maior do que 0, e o valor da venda não pode ser negativo!")
+            console.log("Informações de salário ou venda inválidas!\n\n")
+        }
+    </script>
+</body>
+
+</html>
