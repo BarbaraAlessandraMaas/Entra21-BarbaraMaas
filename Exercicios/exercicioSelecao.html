@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Seleção</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 1
+        // console.log(!10) //false
+        // console.log(!!"String") //true
+        // console.log(!!2.3) //true
+        // console.log(Boolean(null)) //false
+
+        //Exercício 2
+        // console.log(10 > 2) //true
+        // console.log(5 >= "5") //true
+        // //console.log(5 >== "5") //Uncaught SyntaxError: Unexpected token '='
+        // console.log("apple" > "pineapple") //false
+        // console.log("2" > "12") //true
+        // console.log(undefined == null) //true
+        // console.log(undefined === null) //false
+        // console.log(null == "\n0\n") //false
+        // console.log(null === +"\n0\n") //false
+
+        //Exercício 3
+        let valorA = Number(prompt("Informe o valor A:"))
+
+        if (valorA > 10) {
+            console.log("O valor A é maior que 10.\nPrograma Finalizado!\n\n")
+        } else {
+            console.log("Programa Finalizado!\n\n")
+        }
+
+        //Exercício 4
+        let numero = Number(prompt("Escreva um número a ser dividido:"))
+        let resto = numero % 2
+
+        if (resto == 0) {
+            console.log(`A divisão de ${numero} por 2 é ${numero / 2}.\nPrograma Finalizado!\n\n`)
+        } else console.log("Programa Finalizado!\n\n")
+
+        //Exercício 5
+        let valor = Number(prompt("Informe um valor par ou ímpar:"))
+        resto = valor % 2
+
+        if (resto == 0) {
+            console.log(`O número ${valor} é par.\n\n`)
+        } else console.log(`O número ${valor} é ímpar.\n\n`)
+
+        //Exercício 6
+        digito = Number(prompt("Indique um dígito a ser categorizado em uma faixa:"))
+
+        if (digito >= 20 && digito <= 90) {
+            console.log(`O dígito ${digito} está na faixa entre 20 e 90.\n\n`)
+        } else console.log(`O dígito ${digito} está fora da faixa.\n\n`)
+
+        //Exercício 7
+        // let A = 10
+        // let B = 20
+        // console.log(Boolean(A > 10 && B <= 20)) // false
+        // console.log(Boolean(A > 10 || B <= 20)) // true
+        // console.log(Boolean((A === 10 || B > 20) && B === 20)) // true
+        // console.log(null || 2 || undefined) // 2
+        // console.log(Boolean(0 && 1)) // false
+
+        //Exercício 8
+        let numeroA = Number(prompt("Informe o valor A:"))
+        let numeroB = Number(prompt("Informe o valor B:"))
+        let numeroC = Number(prompt("Informe o valor C:"))
+
+        if (numeroA > numeroB && numeroA > numeroC) {
+            maiorValor = numeroA
+        } else if (numeroB > numeroA && numeroB > numeroC) {
+            maiorValor = numeroB
+        } else if (numeroC > numeroA && numeroC > numeroB) {
+            maiorValor = numeroC
+        } else {
+            maiorValor = "Indefinido.\nOs três valores são iguais."
+        }
+        console.log(`Números digitados: ${numeroA}, ${numeroB}, ${numeroC}\nO maior valor é: ${maiorValor}\n\n`)
+
+        //Exercício 9
+        // let resultado
+        // a + b < 4 ? resultado = "Abaixo" : resultado = "Acima"
+        // console.log(`O resultado é: ${resultado}\n\n`)
+
+        //Exercício 10
+        let lado1 = Number(prompt("Informe o lado 1 do triângulo:"))
+        let lado2 = Number(prompt("Informe o lado 2 do triângulo:"))
+        let lado3 = Number(prompt("Informe o lado 3 do triângulo:"))
+
+        if (lado1 == lado2 && lado1 == lado3 && lado2 == lado3) {
+            console.log(`O triângulo de lados ${lado1}, ${lado2} e ${lado3} é equilátero, pois todos os lados são iguais.\n\n`)
+        } else if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3) {
+            console.log(`O triângulo de lados ${lado1}, ${lado2} e ${lado3} é escaleno, pois todos os lados são diferentes.\n\n`)
+        } else console.log(`O triângulo de lados ${lado1}, ${lado2} e ${lado3} é isósceles, pois há somente dois lados iguais.\n\n`)
+
+        //Exercício 11
+        numero = Number(prompt("Informe um número positivo ou negativo:"))
+
+        if (numero >= 0) {
+            console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${(Math.sqrt(numero)).toFixed(2)}\n\n`)
+        } else console.log(`O número é negativo, portanto, é inválido\n\n`)
+
+        //Exercício 12
+        numero = Number(prompt("Informe um número a ser dividido por 5:"))
+        resto = numero % 5
+
+        if (resto == 0) {
+            console.log(`O número ${numero} é divisível por 5.\n\n`)
+        } else console.log(`O número ${numero} não é divisível por 5.\n\n`)
+
+        //Exercício 13
+        numero = Number(prompt("Informe um número para saber sua raiz ou seu valor ao quadrado:"))
+
+        if (numero >= 0) {
+            console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${(Math.sqrt(numero)).toFixed(2)}\n\n`)
+        } else console.log(`O número é negativo.\nO número ${numero} elevado ao quadrado é: ${numero ** 2}\n\n`)
+
+        //Exercício 14
+        let salario = Number(prompt("Informe o salário do trabalhador:"))
+        let prestacaoEmprestimo = Number(prompt("Informe o valor da prestação do empréstimo:"))
+        let porcentagemSalario = (20 / 100) * salario
+
+        if (prestacaoEmprestimo > porcentagemSalario) {
+            console.log("Empréstimo não concedido.\n\n")
+        } else console.log("Empréstimo concedido.\n\n")
+
+        //Exercício 15
+        let golsTime1 = Number(prompt("Informe o número de gols do primeiro time:"))
+        let golsTime2 = Number(prompt("Informe o número de gols do segundo time:"))
+
+        if (golsTime1 > golsTime2) {
+            console.log(`O vencedor do jogo é o primeiro time, com uma pontuação de ${golsTime1} gols a ${golsTime2}\n\n`)
+        } else if (golsTime2 > golsTime1) {
+            console.log(`O vencedor do jogo é o segundo time, com uma pontuação de ${golsTime2} gols a ${golsTime1}\n\n`)
+        } else console.log(`O resultado do jogo foi um empate, com a pontuação de ${golsTime1} a ${golsTime2}\n\n`)
+
+        //Exercício 16
+        let idade = Number(prompt("Informe uma idade para votar:"))
+
+        if (idade > 0 && idade < 18) {
+            console.log(`Um indivíduo com ${idade} anos não precisa votar.\n\n`)
+        } else if (idade >= 18 && idade < 70) {
+            console.log(`Um indivíduo com ${idade} anos tem seu voto obrigatório.\n\n`)
+        } else console.log(`Um indivíduo com ${idade} anos tem seu voto opcional.\n\n`)
+
+        //Exercício 17
+        let numero1 = Number(prompt("Informe o primeiro número para obter sua sequência decrescente:"))
+        let numero2 = Number(prompt("Informe o segundo número para obter sua sequência decrescente:"))
+        let numero3 = Number(prompt("Informe o terceiro número para obter sua sequência decrescente:"))
+
+        if (numero1 > numero2 && numero1 > numero3) {
+            if (numero2 > numero3) {
+                console.log(`A ordem decrescente dos números é: ${numero1}, ${numero2}, ${numero3}\n\n`)
+            } else console.log(`A ordem decrescente dos números é: ${numero1}, ${numero3}, ${numero2}\n\n`)
+        } else if (numero2 > numero1 && numero2 > numero3) {
+            if (numero1 > numero3) {
+                console.log(`A ordem decrescente dos números é: ${numero2}, ${numero1}, ${numero3}\n\n`)
+            } else console.log(`A ordem decrescente dos números é: ${numero2}, ${numero3}, ${numero1}\n\n`)
+        } else if (numero3 > numero1 && numero3 > numero2) {
+            if (numero2 > numero1) {
+                console.log(`A ordem decrescente dos números é: ${numero3}, ${numero2}, ${numero1}\n\n`)
+            } else console.log(`A ordem decrescente dos números é: ${numero3}, ${numero1}, ${numero2}\n\n`)
+        } else console.log("Os números informados são iguais.")
+
+        //Exercício 18
+        numero = Number(prompt("Digite um numero de 1 a 7 para saber o dia correspondente:"))
+        let dia
+
+        switch (numero) {
+            case 1:
+                dia = "domingo"
+                break;
+            case 2:
+                dia = "segunda-feira"
+                break;
+            case 3:
+                dia = "terça-feira"
+                break;
+            case 4:
+                dia = "quarta-feira"
+                break;
+            case 5:
+                dia = "quinta-feira"
+                break;
+            case 6:
+                dia = "sexta-feira"
+                break;
+            case 7:
+                dia = "sábado"
+                break;
+            default:
+                dia = "inexistente"
+                break;
+        }
+        console.log(`O número digitado foi ${numero}.\nO dia da semana correspondente é ${dia}.\n\n`)
+
+        //Exercício 19
+        idade = Number(prompt("Digite uma idade para saber se pode ou não doar sangue:"))
+
+        // if (idade >= 18 && idade <= 67) {
+        //     console.log(`Uma pessoa com ${idade} anos pode doar sangue.\n\n`)
+        // } else console.log(`Uma pessoa com ${idade} ano(s) não pode doar sangue.\n\n`)
+
+        if ((idade > 18 || idade == 18) && (idade < 67 || idade == 67)) {
+            console.log(`Uma pessoa com ${idade} anos pode doar sangue.\n\n`)
+        } else console.log(`Uma pessoa com ${idade} ano(s) não pode doar sangue.\n\n`)
+
+        //Exercício 20
+        numero = Number(prompt("Digite um numero de 1 a 12 para saber o mês correspondente:"))
+        let mes
+
+        switch (numero) {
+            case 1:
+                mes = "janeiro"
+                break;
+            case 2:
+                mes = "fevereiro"
+                break;
+            case 3:
+                mes = "março"
+                break;
+            case 4:
+                mes = "abril"
+                break;
+            case 5:
+                mes = "maio"
+                break;
+            case 6:
+                mes = "junho"
+                break;
+            case 7:
+                mes = "julho"
+                break;
+            case 8:
+                mes = "agosto"
+                break;
+            case 9:
+                mes = "setembro"
+                break;
+            case 10:
+                mes = "outubro"
+                break;
+            case 11:
+                mes = "novembro"
+                break;
+            case 12:
+                mes = "dezembro"
+                break;
+            default:
+                mes = "indefinido"
+                break;
+        }
+        console.log(`O número digitado foi ${numero}.\nO mês correspondente é ${mes}.\n\n`)
+
+
+        //Exercício 21
+        let turno = String(prompt("Digite um turno:\n As opções são: M (Matutino) ou V (Vespertino) ou N (Noturno)."))
+
+        switch (turno) {
+            case "M":
+                console.log("Turno Matutino.\nBom dia!\n\n")
+                break;
+            case "V":
+                console.log("Turno Vespertino.\nBoa tarde!\n\n")
+                break;
+            case "N":
+                console.log("Turno Noturno.\nBoa noite!\n\n")
+                break
+            default:
+                console.log("Turno Inválido.\n\n")
+                break;
+        }
+    </script>
+</body>
+
+</html>
