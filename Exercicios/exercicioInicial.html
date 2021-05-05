@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Aula 04</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 1
+        console.log("Oi, meu nome é Bárbara!\n\n")
+
+        //Excercício 2
+        console.log("Cadastro de funcionários:")
+        console.log("1) Cadastrar Funcionário\n2) Listar Funcionários\n3) Editar Funcionário\n4) Deletar Funcionário\n5) Sair\n\n")
+
+        //Exercício 3
+        let nome = "João"
+        let admin
+
+        admin = nome
+        console.log(`Variável nome: ${nome}\nVariável admin: ${admin}\n\n`)
+
+        //Exercício 4
+        nome = "Bárbara"
+        let idade = 19
+        let peso = 75
+        let altura = 1.83
+        let telefone = "(47) 99950-0423"
+
+        console.log(`Nome: ${nome}\nIdade: ${idade}\nPeso: ${peso}\nAltura: ${altura}\nTelefone: ${telefone}\n\n`)
+
+        //Exercício 5
+        let titulo = "Clean Code: A Handbook of Agile Software Craftsmanship"
+        let edicao = "Ilustrada"
+        let autor = "Robert C. Martin"
+        let dataPublicacao = "8 de Setembro de 2009"
+
+        console.log(`Título: ${titulo}\nEdição: ${edicao}\nAutor: ${autor}\nData de Publicação: ${dataPublicacao}\n\n`)
+
+        //Exercício 6
+        let dataNascimento
+        let quantidadeFilhos
+        let usuarioLogado
+
+        //Exercício 7
+        nome = "João"
+        console.log(`Olá ${1}`) //No console: Olá 1
+        console.log(`Olá ${"nome"}\n\n`) //No console: Olá nome
+        alert(`Olá ${nome}`) //Na Caixa de Mensagem: Olá João
+
+        //Exercício 8
+        let x = 10
+        let y = 8
+        let area = (x * y) / 2 + 3 ** 4 //40 + 81 = 121
+        console.log(`Área: ${area}\n\n`)
+        //A saída de dados é 121, que é a área calculada sobre os valores informados
+
+        //Exercício 9
+        let a = 2
+        x = 1 + (a *= 2) //a = 2 * 2 && x = 1 + 4
+        console.log(`Valor de 'a': ${a}\nValor de x: ${x}\n\n`)
+        //O valor de 'a' será 4, e o valor de 'x' será 5
+
+        //Exercício 10
+        let operacao1 = "" + 1 + 0 //10
+        let operacao2 = "" - 1 + 0 //-1
+        let operacao3 = 6 / "3" //2
+        let operacao4 = "2" * "3" //6
+        let operacao5 = 4 + 5 + "px" //9px
+        let operacao6 = "$" + 4 + 5 //$45
+        let operacao7 = "4" - 2 //2
+
+        console.log(`A) ${operacao1}\nB) ${operacao2}\nC) ${operacao3}\nD) ${operacao4}\nE) ${operacao5}\nF) ${operacao6}\nG) ${operacao7}\n\n`)
+
+        //Exercício 11
+        altura = Number(prompt("Digite a altura do quadrado:"))
+        let largura = Number(prompt("Digite a largura do quadrado:"))
+
+        if (altura > 0 && largura > 0) {
+            area = altura * largura
+            let perimetro = (2 * altura) + (2 * largura)
+            console.log(`Área do Quadrado: ${area}\nPerímetro do Quadrado: ${perimetro}\n\n`)
+        } else {
+            alert("As dimensões do quadrado não pode ser negativas ou nulas!")
+            console.log("Dimensões do quadrado incorretas!\n\n")
+        }
+
+        //Exercício 12
+        let numero1 = Number(prompt("Digite o primeiro número para somar:"))
+        let numero2 = Number(prompt("Digite o segundo número para somar:"))
+        let soma = numero1 + numero2
+
+        console.log(`A soma dos dois números é: ${soma}\n\n`)
+
+        //Exercício 13
+        let nota1 = Number(prompt("Digite a primeira nota para calcular a média:"))
+        let nota2 = Number(prompt("Digite a segunda nota para calcular a média:"))
+
+        if (nota1 <= 10 && nota1 >= 0 && nota2 <= 10 && nota2 >= 0) {
+            let media = (nota1 + nota2) / 2
+            console.log(`A média aritmética entre as duas notas é: ${media}\n\n`)
+        } else {
+            alert("Notas informadas não podem ser maiores do que 10 nem menores do que 0!")
+            console.log("Notas inseridas incorretas!\n\n")
+        }
+
+        //Exercício 14
+        let valor1 = Number(prompt("Digite o primeiro valor  a ser elevado ao quadrado:"))
+        let valor2 = Number(prompt("Digite o segundo valor a ser elevado ao quadrado:"))
+        let valor3 = Number(prompt("Digite o terceiro valor a ser elevado ao quadrado:"))
+
+        console.log(`O quadrado do primeiro valor é: ${valor1 * valor1}\nO quadrado do segundo valor é: ${valor2 * valor2}\nO quadrado do terceiro valor é: ${valor3 * valor3}\n\n`)
+
+        //Exercício 15
+        let varA = 10
+        let varB = 20
+        let aux
+
+        console.log(`O valor da variável A era: ${varA}\nO valor da variável B era: ${varB}`)
+
+        aux = varA
+        varA = varB
+        varB = aux
+
+        console.log(`Agora, o valor das variáveis são:\nA: ${varA}\nB: ${varB}\n\n`)
+
+        //Exercício 16
+        let meses = Number(prompt("Informe uma quantidade de meses para converter para dias:"))
+        let dias
+
+        if (meses > 0) {
+            dias = 30 * meses
+            console.log(`A quantidade de dias em ${meses} meses é: ${dias} dias\n\n`)
+        } else {
+            alert("O mês não pode ser menor ou igual a 0!")
+            console.log("Número de meses inseridos incorretos!")
+        }
+    </script>
+</body>
+
+</html>
