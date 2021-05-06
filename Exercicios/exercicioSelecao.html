@@ -28,7 +28,7 @@
         // console.log(null === +"\n0\n") //false
 
         //Exercício 3
-        let valorA = Number(prompt("Informe o valor A:"))
+        let valorA = +(prompt("Informe o valor A:"))
 
         if (valorA > 10) {
             console.log("O valor A é maior que 10.\nPrograma Finalizado!\n\n")
@@ -38,17 +38,15 @@
 
         //Exercício 4
         let numero = Number(prompt("Escreva um número a ser dividido:"))
-        let resto = numero % 2
 
-        if (resto == 0) {
+        if (numero % 2 == 0) {
             console.log(`A divisão de ${numero} por 2 é ${numero / 2}.\nPrograma Finalizado!\n\n`)
         } else console.log("Programa Finalizado!\n\n")
 
         //Exercício 5
         let valor = Number(prompt("Informe um valor par ou ímpar:"))
-        resto = valor % 2
 
-        if (resto == 0) {
+        if (valor % 2 == 0) {
             console.log(`O número ${valor} é par.\n\n`)
         } else console.log(`O número ${valor} é ímpar.\n\n`)
 
@@ -109,9 +107,8 @@
 
         //Exercício 12
         numero = Number(prompt("Informe um número a ser dividido por 5:"))
-        resto = numero % 5
 
-        if (resto == 0) {
+        if (numero % 5 == 0) {
             console.log(`O número ${numero} é divisível por 5.\n\n`)
         } else console.log(`O número ${numero} não é divisível por 5.\n\n`)
 
@@ -125,9 +122,8 @@
         //Exercício 14
         let salario = Number(prompt("Informe o salário do trabalhador:"))
         let prestacaoEmprestimo = Number(prompt("Informe o valor da prestação do empréstimo:"))
-        let porcentagemSalario = (20 / 100) * salario
 
-        if (prestacaoEmprestimo > porcentagemSalario) {
+        if (prestacaoEmprestimo > ((20 / 100) * salario)) {
             console.log("Empréstimo não concedido.\n\n")
         } else console.log("Empréstimo concedido.\n\n")
 
