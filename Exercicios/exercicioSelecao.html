@@ -96,7 +96,8 @@
         numero = Number(prompt("Informe um número positivo ou negativo:"))
 
         if (numero >= 0) {
-            console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${(Math.sqrt(numero)).toFixed(2)}\n\n`)
+            raiz = Math.sqrt(numero)
+            console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${raiz.toFixed(2)}\n\n`)
         } else console.log(`O número é negativo, portanto, é inválido\n\n`)
 
         //Exercício 12
