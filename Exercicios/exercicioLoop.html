@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Loop</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 1
+        let i = 0
+        while (i < 10) { //while
+            console.log("Olá Mundo!")
+            i++
+        }
+
+        i = 0
+        do { //do-while
+            console.log("Olá Mundo!")
+            i++
+        } while (i < 10)
+
+        for (i = 0; i < 10; i++) { //for
+            console.log("Olá Mundo!")
+        }
+        console.log("")
+
+        //Exercício 2
+        i = 0
+        while (i < 10) { //while
+            console.log(`Estou aparecendo pela ${++i} vez na tela!`)
+        }
+        console.log("")
+
+        i = 0
+        do { //do-while
+            console.log(`Estou aparecendo pela ${++i} vez na tela!`)
+        } while (i < 10)
+        console.log("")
+        
+        for (i = 0; i < 10;) { //for
+            console.log(`Estou aparecendo pela ${++i} vez na tela!`)
+        }
+        console.log("")
+
+        //Exercício 3
+        for (i = 10; i >= 0; i--) {
+            console.log(i)
+        }
+        console.log("Fim!\n\n")
+
+        //Exercício 4
+        for (i = 0; i < 3; i++) {
+            let numero1 = +prompt("Informe o primeiro número para subtrair:")
+            let numero2 = +prompt("Informe o primeiro número para subtrair:")
+
+            let resultado = numero1 - numero2
+            console.log(`O resultado da subtração de ${numero1} - ${numero2} é: ${resultado}`)
+        }
+    </script>
+</body>
+
+</html>

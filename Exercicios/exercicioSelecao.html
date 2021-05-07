@@ -95,8 +95,8 @@
         //Exercício 11
         numero = Number(prompt("Informe um número positivo ou negativo:"))
 
-        if (numero >= 0) {
-            raiz = Math.sqrt(numero)
+        if (numero > 0) {
+            let raiz = Math.sqrt(numero)
             console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${raiz.toFixed(2)}\n\n`)
         } else console.log(`O número é negativo, portanto, é inválido\n\n`)
 
@@ -110,9 +110,13 @@
         //Exercício 13
         numero = Number(prompt("Informe um número para saber sua raiz ou seu valor ao quadrado:"))
 
-        if (numero >= 0) {
-            console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${(Math.sqrt(numero)).toFixed(2)}\n\n`)
-        } else console.log(`O número é negativo.\nO número ${numero} elevado ao quadrado é: ${numero ** 2}\n\n`)
+        if (numero > 0) {
+            raiz = Math.sqrt(numero)
+            console.log(`O número é positivo.\nA raiz quadrada do número ${numero} é: ${raiz.toFixed(2)}\n\n`)
+        } else {
+            let potenciacao = numero ** 2
+            console.log(`O número é negativo.\nO número ${numero} elevado ao quadrado é: ${potenciacao}\n\n`)
+        }
 
         //Exercício 14
         let salario = Number(prompt("Informe o salário do trabalhador:"))
@@ -252,7 +256,7 @@
 
 
         //Exercício 21
-        let turno = String(prompt("Digite um turno:\n As opções são: M (Matutino) ou V (Vespertino) ou N (Noturno)."))
+        let turno = String(prompt("Digite um turno:\n As opções são: M (Matutino) ou V (Vespertino) ou N (Noturno).")).toUpperCase();
 
         switch (turno) {
             case "M":
