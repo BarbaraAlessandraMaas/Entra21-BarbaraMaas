@@ -21,7 +21,7 @@
         // console.log(5 >= "5") //true
         // console.log(5 >== "5") //Uncaught SyntaxError: Unexpected token '='
         // console.log("apple" > "pineapple") //false
-        // console.log("2" > "12") //true
+        // console.log("2" > "12") //true, pois só compara o primeiro caractere
         // console.log(undefined == null) //true
         // console.log(undefined === null) //false
         // console.log(null == "\n0\n") //false
@@ -32,9 +32,7 @@
 
         if (valorA > 10) {
             console.log("O valor A é maior que 10.\nPrograma Finalizado!\n\n")
-        } else {
-            console.log("Programa Finalizado!\n\n")
-        }
+        } else console.log("Programa Finalizado!\n\n")
 
         //Exercício 4
         let numero = Number(prompt("Escreva um número a ser dividido:"))
@@ -53,7 +51,7 @@
         //Exercício 6
         digito = Number(prompt("Indique um dígito a ser categorizado em uma faixa:"))
 
-        if (digito >= 20 && digito <= 90) {
+        if (digito > 20 && digito < 90) {
             console.log(`O dígito ${digito} está na faixa entre 20 e 90.\n\n`)
         } else console.log(`O dígito ${digito} está fora da faixa.\n\n`)
 
@@ -77,15 +75,11 @@
             maiorValor = numeroB
         } else if (numeroC > numeroA && numeroC > numeroB) {
             maiorValor = numeroC
-        } else {
-            maiorValor = "Indefinido.\nOs três valores são iguais."
-        }
+        } else maiorValor = "Indefinido.\nOs três valores são iguais."
         console.log(`Números digitados: ${numeroA}, ${numeroB}, ${numeroC}\nO maior valor é: ${maiorValor}\n\n`)
 
         //Exercício 9
-        // let resultado
         // a + b < 4 ? resultado = "Abaixo" : resultado = "Acima"
-        // console.log(`O resultado é: ${resultado}\n\n`)
 
         //Exercício 10
         let lado1 = Number(prompt("Informe o lado 1 do triângulo:"))
