@@ -1,0 +1,93 @@
+Respostas:
+
+1) Letra B: entrada de dados (input), processamento, saída de dados (output);
+
+2) Letra D: É um espaço na memória do computador (RAM) que armazena um dado mutável durante a execução do algoritmo.
+
+3) let raio = +prompt("Digite o raio da circunferência:")
+   const PI = 3.14159
+   let area = PI * raio**2
+
+   console.log(`A área da circunferência de raio ${raio} é ${area.toFixed(2)}`)
+
+4) Fluxograma em anexo.
+
+5) let nome = String(prompt("Informe o nome do aluno:"))
+   let nota1 = +prompt("Informe a primeira nota:")
+   let nota2 = +prompt("Informe a segunda nota:")
+   let media = (nota1 + nota2) / 2
+
+   if (media >= 6) {
+       console.log(`A média de ${nome} foi: ${media}\nO(a) aluno(a) foi aprovado(a)`)
+   } else {
+       console.log(`A média de ${nome} foi: ${media}\nO(a) aluno(a) foi reprovado(a)`)
+   }
+
+6) let numero1 = +prompt("Digite o primeiro número:")
+   let numero2 = +prompt("Digite o segundo número:")
+
+   if (numero1 > numero2) {
+       console.log(`Números digitados: ${numero1}, ${numero2}\nO maior número é ${numero1}`)
+   } else if (numero2 > numero1) {
+       console.log(`Números digitados: ${numero1}, ${numero2}\nO maior número é ${numero2}`)
+   } else {
+       console.log(`Números digitados: ${numero1}, ${numero2}\nOs números são iguais`)
+   }
+
+7) let valor1 = +prompt("Digite o primeiro valor:")
+   let valor2 = +prompt("Digite o segundo valor:")
+   let valor3 = +prompt("Digite o terceiro valor:")
+   let maiorValor
+
+   if (valor1 > valor2 && valor1 > valor3) {
+       maiorValor = valor1
+   } else if (valor2 > valor3 && valor2 > valor1) {
+       maiorValor = valor2
+   } else if (valor3 > valor1 && valor3 > valor2) {
+       maiorValor = valor3
+   } else {
+       maiorValor = "inexistente, pois são iguais"
+   }
+
+   console.log(`Os valores informados são: ${valor1}, ${valor2}, ${valor3}\nO maior valor entre eles é ${maiorValor}`)
+
+8) let numero = +prompt("Digite um número para saber se está na faixa:")
+
+   if (numero >= 20 && numero <= 50) {
+       console.log(`O número digitado foi ${numero}\nEle está na faixa entre 20 e 50`)
+   } else {
+       console.log(`O número digitado foi ${numero}\nEle está fora da faixa`)
+   }
+
+9) let altura = +prompt("Digite a altura do indivíduo:")
+   let genero = (String(prompt("Identifique o sexo do indivíduo:\nF (Feminino)\nM (Masculino)"))).toUpperCase()
+   let peso
+
+   switch (genero) {
+       case "F":
+           peso = (62.1 * altura) - 44.7
+           console.log(`O peso ideal para uma pessoa do sexo feminino com altura ${altura} é ${peso.toFixed(2)}Kgs`)
+           break;
+        case "M":
+           peso = (72.7 * altura) - 58
+            console.log(`O peso ideal para uma pessoa do sexo masculino com altura ${altura} é ${peso.toFixed(2)}Kgs`)
+           break;
+       default:
+           console.log("É preciso identificar o sexo para saber o peso ideal")
+           break;
+   }
+
+10) let alturaImc = +prompt("Digite a altura para calcular o IMC:")
+    let pesoImc = +prompt("Digite o peso para calcular o IMC:")
+    let imc = pesoImc / (alturaImc ** 2)
+
+    if (imc >= 30) {
+        console.log(`O peso informado foi ${pesoImc}Kgs e a altura foi de ${alturaImc}\nO IMC resultou em: ${imc.toFixed(2)}\nO indivíduo é obeso`)
+    } else if (imc >= 25 && imc < 30) {
+        console.log(`O peso informado foi ${pesoImc}Kgs e a altura foi de ${alturaImc}\nO IMC resultou em: ${imc.toFixed(2)}\nO indivíduo está acima do peso`)
+    } else if (imc >= 18.5 && imc < 25) {
+        console.log(`O peso informado foi ${pesoImc}Kgs e a altura foi de ${alturaImc}\nO IMC resultou em: ${imc.toFixed(2)}\nO indivíduo tem o peso normal`)
+    } else {
+        console.log(`O peso informado foi ${pesoImc}Kgs e a altura foi de ${alturaImc}\nO IMC resultou em: ${imc.toFixed(2)}\nO indivíduo está abaixo do peso`)
+    }
+

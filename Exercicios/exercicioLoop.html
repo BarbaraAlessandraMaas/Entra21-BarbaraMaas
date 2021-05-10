@@ -39,7 +39,7 @@
             console.log(`Estou aparecendo pela ${++i} vez na tela!`)
         } while (i < 10)
         console.log("")
-        
+
         for (i = 0; i < 10;) { //for
             console.log(`Estou aparecendo pela ${++i} vez na tela!`)
         }
@@ -59,6 +59,109 @@
             let resultado = numero1 - numero2
             console.log(`O resultado da subtração de ${numero1} - ${numero2} é: ${resultado}`)
         }
+        console.log("")
+
+        //Exercício 5
+        let numero = 0
+        while (numero != 100000) {
+            numero += 1000
+            console.log(numero)
+        }
+        console.log("")
+
+        //Exercício 6
+        let soma = 0
+
+        for (i = 0; i < 5; i++) {
+            let valor = +(prompt("Digite um valor:"))
+            soma += valor
+        }
+
+        let media = soma / 5
+        console.log(`A soma dos valores informados é ${soma}, e a média é ${media.toFixed(2)}\n\n`)
+
+        //Exercício 7
+        numero = +prompt("Digite um número N:")
+
+        for (i = 0; i <= numero; i++) {
+            if (i % 2 != 0) {
+                console.log(i)
+            }
+        }
+        console.log("")
+
+        //Exercício 8
+        numero = +prompt("Digite um número para saber sua tabuada:")
+
+        for (i = 1; i <= 10; i++) {
+            resultado = numero * i
+            console.log(`O resultado da multiplicação entre ${numero} x ${i} = ${resultado}`)
+        }
+        console.log("")
+
+        //Exercício 9
+        soma = 0
+
+        for (i = 0; i < 5; i++) {
+            numero = +prompt("Digite um número:")
+            if (numero < 0) {
+                soma++
+            }
+        }
+
+        console.log(`O número de vezes em que foi digitado um número negativo foi ${soma}\n\n`)
+
+        //Exercício 10
+        let par = 0
+        let impar = 0
+
+        for (i = 0; i < 10; i++) {
+            numero = +prompt("Digite um numero diferente:")
+            if (numero % 2 == 0) {
+                par++
+            } else {
+                impar++
+            }
+        }
+
+        console.log(`Foram digitados ${par} números pares e ${impar} números ímpares.\n\n`)
+
+        //Exercício 11
+        let dentroIntervalo = 0
+        let foraIntervalo = 0
+
+        while (true) {
+            numero = +prompt("Digite um número inteiro:")
+
+            if (numero < 0) {
+                break;
+            } else {
+                if (numero >= 10 && numero <= 20) {
+                    dentroIntervalo++
+                } else {
+                    foraIntervalo++
+                }
+            }
+        }
+
+        console.log(`${dentroIntervalo} números estão dentro do intervalo.\n${foraIntervalo} números estão fora do intervalo.\n\n`)
+
+        //Exercício 12
+        i = 0
+
+        while (true) {
+            numero = +prompt("Digite um número:")
+
+            if (numero < 0) {
+                break;
+            } else {
+                soma += numero
+                i++
+            }
+        }
+
+        media = soma / i
+        console.log(`A média aritmética dos valores é ${media}\n\n`)
     </script>
 </body>
 
