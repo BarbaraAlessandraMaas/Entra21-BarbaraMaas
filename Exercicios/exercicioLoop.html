@@ -147,7 +147,8 @@
         console.log(`${dentroIntervalo} números estão dentro do intervalo.\n${foraIntervalo} números estão fora do intervalo.\n\n`)
 
         //Exercício 12
-        i = 0
+        let contador = 0
+        let somaValores = 0
 
         while (true) {
             numero = +prompt("Digite um número:")
@@ -155,13 +156,16 @@
             if (numero < 0) {
                 break;
             } else {
-                soma += numero
-                i++
+                somaValores += numero
+                contador++
             }
         }
 
-        media = soma / i
-        console.log(`A média aritmética dos valores é ${media}\n\n`)
+        media = somaValores / contador
+        console.log(`A média aritmética dos valores é ${media.toFixed(2)}\n\n`)
+
+        //Exercício 13
+        
     </script>
 </body>
 
