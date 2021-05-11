@@ -94,7 +94,7 @@
         numero = +prompt("Digite um número para saber sua tabuada:")
 
         for (i = 1; i <= 10; i++) {
-            resultado = numero * i
+            let resultado = numero * i
             console.log(`O resultado da multiplicação entre ${numero} x ${i} = ${resultado}`)
         }
         console.log("")
@@ -165,7 +165,78 @@
         console.log(`A média aritmética dos valores é ${media.toFixed(2)}\n\n`)
 
         //Exercício 13
-        
+        let multiplos = 7
+
+        for (i = 0; i < 15; i++) {
+            console.log(multiplos)
+            multiplos += 7
+        }
+
+        //Exercícios 14
+        let fatorial = +prompt("Digite um valor para saber seu fatorial:")
+        let resultado = fatorial
+
+        for (i = 1; i < fatorial; i++) {
+            resultado *= i
+        }
+
+        console.log(`O resultado de ${fatorial}! é ${resultado}\n\n`)
+
+        //Exercício 15
+        let somaFilhos = 0
+        let maiorSalario = 0
+        let somaSalario = 0
+        i = 0
+
+        while (true) {
+            let salario = +prompt("Digite o salário do habitante:")
+            if (salario < 0) {
+                break;
+            } else {
+                let quantidadeFilhos = +prompt("Digite o número de filhos do habitante:")
+                somaSalario += salario
+                somaFilhos += quantidadeFilhos
+                if (salario > maiorSalario) {
+                    maiorSalario = salario
+                }
+            }
+            i++
+        }
+
+        let mediaFilhos = somaFilhos / i
+        let mediaSalarial = somaSalario / i
+        console.log(`Média salarial: R$${mediaSalarial.toFixed(2)}\nMédia de filhos: ${mediaFilhos.toFixed(2)}\nMaior salário: R$${maiorSalario}\n\n`)
+
+        //Exercício 16
+        let menorValor
+        let maiorValor
+
+        for (i = 0; i < 5; i++) {
+            valor = +prompt("Digite o valor:")
+            if (i == 0) {
+                menorValor = valor
+                maiorValor = valor
+            }
+            if (valor > maiorValor) {
+                maiorValor = valor
+            }
+            if (valor < menorValor) {
+                menorValor = valor
+            }
+        }
+
+        console.log(`Maior valor: ${maiorValor}\nMenor valor: ${menorValor}\n\n`)
+
+        //Exercício 17
+        while (true) {
+            let voto = +prompt("Digite um valor para votar:\n1 - José Bolinha\n2 - Maria Nascimento\n3 - João da Silva\n4 - Voto nulo\n 5 - Voto em branco")
+
+            if (voto == 0) {
+                break;
+            } else {
+                
+            }
+        }
     </script>
 </body>
 
