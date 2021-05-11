@@ -228,14 +228,109 @@
         console.log(`Maior valor: ${maiorValor}\nMenor valor: ${menorValor}\n\n`)
 
         //Exercício 17
+        let votosJose = 0
+        let votosMaria = 0
+        let votosJoao = 0
+        let votosNulos = 0
+        let votosBranco = 0
+
         while (true) {
-            let voto = +prompt("Digite um valor para votar:\n1 - José Bolinha\n2 - Maria Nascimento\n3 - João da Silva\n4 - Voto nulo\n 5 - Voto em branco")
+            let voto = +prompt("Digite um valor para votar:\n1 - José Bolinha\n2 - Maria Nascimento\n3 - João da Silva\n4 - Voto nulo\n5 - Voto em branco")
 
             if (voto == 0) {
                 break;
             } else {
-                
+                switch (voto) {
+                    case 1:
+                        votosJose++
+                        break;
+                    case 2:
+                        votosMaria++
+                        break;
+                    case 3:
+                        votosJoao++
+                        break;
+                    case 4:
+                        votosNulos++
+                        break;
+                    case 5:
+                        votosBranco++
+                        break;
+                    default:
+                        console.log("Valor inválido para votar")
+                        break;
+                }
             }
+        }
+
+        console.log(`Total de votos:\nJosé Bolinha: ${votosJose} voto(s)\nMaria Nascimento: ${votosMaria} voto(s)\nJoão da Silva: ${votosJoao} voto(s)\nVotos nulos: ${votosNulos} voto(s)\nVotos em branco: ${votosBranco} voto(s)`)
+        console.log("")
+
+        //Exercício 18
+        for (i = 0; i < 4; i++) {
+            mediaAlunos = +prompt("Digite a média do aluno:")
+
+            if (mediaAlunos > 0 && mediaAlunos < 5) {
+                console.log(`Conceito D`)
+            } else if (mediaAlunos >= 5 && mediaAlunos < 7) {
+                console.log(`Conceito C`)
+            } else if (mediaAlunos >= 7 && mediaAlunos < 9) {
+                console.log(`Conceito B`)
+            } else if (mediaAlunos >= 9 && mediaAlunos <= 10) {
+                console.log(`Conceito A`)
+            } else {
+                console.log(`Informe uma nota válida`)
+                continue
+            }
+        }
+        console.log("")
+
+        //Exercício 19
+        for (i = 0; i < 3; i++) {
+            matricula = +prompt("Informe o código do aluno:")
+            if (matricula == 0) {
+                break;
+            } else {
+                aluno1 = +prompt("Informe a primeira nota para calcular a média:")
+                aluno2 = +prompt("Informe a segunda nota para calcular a média:")
+                aluno3 = +prompt("Informe a terceira nota para calcular a média:")
+
+                let mediaAlunoMatricula = (aluno1 + aluno2 + aluno3) / 3
+                console.log(` média do aluno com a matrícula ${matricula} é ${mediaAlunoMatricula.toFixed(2)}`)
+            }
+        }
+        console.log("")
+
+        //Exercício 20
+        let valor1 = +prompt("Informe o primeiro número:")
+        let valor2 = +prompt("Informe o segundo número:")
+        let somaPares = 0
+        let multiplicacaoImpares = 1
+
+        for (i = valor1; i <= valor2; i++) {
+            if (i % 2 == 0) {
+                somaPares += i
+            } else {
+                multiplicacaoImpares *= i
+            }
+        }
+
+        console.log(`Soma dos números pares: ${somaPares}\nMultiplicação dos números ímpares: ${multiplicacaoImpares}`)
+
+        //Exercício 21
+        for (i = 2; i <= 71; i++) {
+            if (ehPrimo(i)) {
+                console.log(i)
+            }
+        }
+
+        function ehPrimo(numero) {
+            for (let j = 2; j < numero; j++) {
+                if (numero % j == 0) {
+                    return false;
+                }
+            }
+            return true;
         }
     </script>
 </body>
