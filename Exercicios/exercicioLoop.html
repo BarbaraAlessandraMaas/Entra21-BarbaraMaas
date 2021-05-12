@@ -115,11 +115,7 @@
 
         for (i = 0; i < 10; i++) {
             numero = +prompt("Digite um numero diferente:")
-            if (numero % 2 == 0) {
-                par++
-            } else {
-                impar++
-            }
+            numero % 2 == 0 ? par++ : impar++
         }
 
         console.log(`Foram digitados ${par} números pares e ${impar} números ímpares.\n\n`)
@@ -134,11 +130,7 @@
             if (numero < 0) {
                 break;
             } else {
-                if (numero >= 10 && numero <= 20) {
-                    dentroIntervalo++
-                } else {
-                    foraIntervalo++
-                }
+                numero >= 10 && numero <= 20 ? dentroIntervalo++ : foraIntervalo++
             }
         }
 
@@ -174,7 +166,7 @@
         let fatorial = +prompt("Digite um valor para saber seu fatorial:")
         let resultado = fatorial
 
-        for (i = 1; i < fatorial; i++) {
+        for (let i = 1; i < fatorial; i++) {
             resultado *= i
         }
 
