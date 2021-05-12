@@ -62,12 +62,9 @@
         console.log("")
 
         //Exercício 5
-        let numero = 0
-        while (numero != 100000) {
-            numero += 1000
-            console.log(numero)
+        for (let i = 1000; i <= 100000; i += 1000) {
+            console.log(i)
         }
-        console.log("")
 
         //Exercício 6
         let soma = 0
@@ -82,13 +79,14 @@
 
         //Exercício 7
         numero = +prompt("Digite um número N:")
+        let impar = ""
 
-        for (i = 0; i <= numero; i++) {
+        for (i = 0; i <= numero; ++i) {
             if (i % 2 != 0) {
-                console.log(i)
+                i == numero ? impar += i : impar += `${i}, `
             }
         }
-        console.log("")
+        console.log(impar)
 
         //Exercício 8
         numero = +prompt("Digite um número para saber sua tabuada:")
