@@ -155,12 +155,12 @@
         console.log(`A média aritmética dos valores é ${media.toFixed(2)}\n\n`)
 
         //Exercício 13
-        let multiplos = 7
+        let multiplos = ""
 
-        for (i = 0; i < 15; i++) {
-            console.log(multiplos)
-            multiplos += 7
+        for (i = 1; i < 16; i++) {
+            multiplos += `${i * 7} `
         }
+        console.log(multiplos)
 
         //Exercícios 14
         let fatorial = +prompt("Digite um valor para saber seu fatorial:")
@@ -176,7 +176,7 @@
         let somaFilhos = 0
         let maiorSalario = 0
         let somaSalario = 0
-        i = 0
+        let i = 0
 
         while (true) {
             let salario = +prompt("Digite o salário do habitante:")
@@ -201,8 +201,8 @@
         let menorValor
         let maiorValor
 
-        for (i = 0; i < 5; i++) {
-            valor = +prompt("Digite o valor:")
+        for (let i = 0; i < 5; i++) {
+            let valor = +prompt("Digite o valor:")
             if (i == 0) {
                 menorValor = valor
                 maiorValor = valor
