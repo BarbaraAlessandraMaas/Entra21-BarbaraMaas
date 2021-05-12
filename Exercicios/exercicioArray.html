@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 1
+        {
+            let vetor = []
+            let pares = 0
+
+            for (let i = 0; i < 10; i++) {
+                vetor[i] = +prompt(`Digite o ${i + 1}º valor:`)
+                if (vetor[i] % 2 === 0) {
+                    console.log(vetor[i])
+                    pares++
+                }
+            }
+            console.log(`O vetor possui ${pares} valor(es) par(es)`)
+        }
+
+        //Execício 2
+        {
+            let vetor = []
+            let maiorElemento = 0
+            let posicao
+
+            for (let i = 0; i < 5; i++) {
+                vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
+                if (vetor[i] > maiorElemento) {
+                    maiorElemento = vetor[i]
+                    posicao = i
+                }
+            }
+            console.log(`Vetor: ${vetor}\nMaior elemento: ${maiorElemento}\nPosição: ${posicao}`)
+        }
+
+        //Exercício 3
+        {
+            let vetor = []
+            let maiorElemento = 0
+            let menorElemento = 0
+
+            for (let i = 0; i < 5; i++) {
+                vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
+                if (i == 0) {
+                    menorElemento = vetor[i]
+                    maiorElemento = vetor[i]
+                }
+                if (vetor[i] > maiorElemento) {
+                    maiorElemento = vetor[i]
+                }
+                if (vetor[i] < menorElemento) {
+                    menorElemento = vetor[i]
+                }
+            }
+            console.log(`Vetor: ${vetor}\nMaior elemento: ${maiorElemento}\nMenor elemento: ${menorElemento}`)
+        }
+
+        //Exercício 4
+        {
+            let vetor = []
+            let vetor2 = []
+
+            for (let i = 0; i < 5; i++) {
+                vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
+            }
+            for (let i = vetor.length - 1; i >= 0; i--) {
+                vetor2 = vetor[i]
+            }
+            console.log(`Primeiro vetor: ${vetor}\nSegundo vetor: ${vetor2}`)
+        }
+    </script>
+</body>
+
+</html>
