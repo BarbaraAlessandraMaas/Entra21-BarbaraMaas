@@ -298,11 +298,7 @@
         let multiplicacaoImpares = 1
 
         for (i = valor1; i <= valor2; i++) {
-            if (i % 2 == 0) {
-                somaPares += i
-            } else {
-                multiplicacaoImpares *= i
-            }
+            i % 2 == 0 ? somaPares += i : multiplicacaoImpares *= i
         }
 
         console.log(`Soma dos números pares: ${somaPares}\nMultiplicação dos números ímpares: ${multiplicacaoImpares}`)
