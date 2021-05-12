@@ -78,10 +78,10 @@
         console.log(`A soma dos valores informados é ${soma}, e a média é ${media.toFixed(2)}\n\n`)
 
         //Exercício 7
-        numero = +prompt("Digite um número N:")
+        let numero = +prompt("Digite um número N:")
         let impar = ""
 
-        for (i = 0; i <= numero; ++i) {
+        for (let i = 0; i <= numero; ++i) {
             if (i % 2 != 0) {
                 i == numero ? impar += i : impar += `${i}, `
             }
