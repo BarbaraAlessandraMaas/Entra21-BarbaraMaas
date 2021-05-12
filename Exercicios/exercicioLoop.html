@@ -83,7 +83,7 @@
 
         for (let i = 0; i <= numero; ++i) {
             if (i % 2 != 0) {
-                i == numero ? impar += i : impar += `${i}, `
+                i == numero || i == numero - 1 ? impar += i : impar += `${i}, `
             }
         }
         console.log(impar)
