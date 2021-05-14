@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 1
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+            let contador = 0
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt(`Digite um valor para a linha ${i + 1} e coluna ${j + 1}:`)
+                    if (matriz[i][j] > 10) contador++
+                    mostrarMatriz += matriz[i][j] + "\t"
+                }
+                mostrarMatriz += "\n"
+            }
+            console.log(mostrarMatriz)
+            console.log(`A matriz possi ${contador} valor(es) maior(es) do que 10`)
+        }
+
+        //Exercício 2
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+
+            for (let i = 0; i < 5; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 5; j++) {
+                    i == j ? matriz[i][j] = 1 : matriz[i][j] = 0 
+                    mostrarMatriz += matriz[i][j] + "\t"                   
+                }
+                mostrarMatriz += "\n"
+            }
+            console.log(mostrarMatriz)
+        }
+
+        //Exercício 3
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt(`Informe o valor a ser armazenado na linha ${i + 1}, coluna ${j + 1}:`)
+                    mostrarMatriz += matriz[i][j] + "\t"
+                }
+                mostrarMatriz += "\n"
+            }
+
+            console.log(mostrarMatriz)
+            let valor = +prompt("Agora, informe um valor a ser encontrado no vetor:")
+
+            for (let i = 0; i < 3; i++) {
+                for (j = 0; j < 3; j++) {
+                    if (valor ==  matriz[i][j]) console.log(`O valor ${valor} se encontra na linha ${i + 1}, coluna ${j + 1}`)
+                }
+            }
+        }
+
+        //Exercício 4
+        {
+            let matriz = []
+            let maiorValor
+            let contador = 0
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt(`Informe os valores a serem armazenados na linha ${i}, coluna ${j} da primeira matriz:`)
+                    if (i == 0 && j == 0) maiorValor = matriz[i][j]
+                    if (matriz[i][j] > maiorValor) {
+                        maiorValor = matriz[i][j]
+                        contador++
+                    }
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

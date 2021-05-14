@@ -32,6 +32,10 @@
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
+                if (i == 0) {
+                    maiorElemento = vetor[i]
+                    posicao = 0
+                }
                 if (vetor[i] > maiorElemento) {
                     maiorElemento = vetor[i]
                     posicao = i
