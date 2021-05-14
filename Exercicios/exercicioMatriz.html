@@ -48,6 +48,9 @@
         {
             let matriz = []
             let mostrarMatriz = ""
+            let valorEncontrado
+            let x
+            let y
 
             for (let i = 0; i < 3; i++) {
                 matriz[i] = []
@@ -63,29 +66,50 @@
 
             for (let i = 0; i < 3; i++) {
                 for (j = 0; j < 3; j++) {
-                    if (valor ==  matriz[i][j]) console.log(`O valor ${valor} se encontra na linha ${i + 1}, coluna ${j + 1}`)
+                    if (valor == matriz[i][j]) {
+                        valorEncontrado = true
+                        x = i
+                        y = j
+                    }    
                 }
+            }
+
+            if (valorEncontrado == true) {
+                console.log(`O valor ${valor} se encontra na linha ${x + 1}, coluna ${y + 1}`)
+            } else {
+                console.log(`O valor ${valor} não foi encontrado`)
             }
         }
 
         //Exercício 4
         {
-            let matriz = []
-            let maiorValor
-            let contador = 0
+            let matriz1 = []
+            let mostrarMatriz1 = ""
+            let valor1
 
-            for (let i = 0; i < 3; i++) {
-                matriz[i] = []
-                for (let j = 0; j < 3; j++) {
-                    matriz[i][j] = +prompt(`Informe os valores a serem armazenados na linha ${i}, coluna ${j} da primeira matriz:`)
-                    if (i == 0 && j == 0) maiorValor = matriz[i][j]
-                    if (matriz[i][j] > maiorValor) {
-                        maiorValor = matriz[i][j]
-                        contador++
-                    }
+            for (let i = 0; i < 5; i++) {
+                matriz1[i] = []
+                for (let j = 0; j < 5; j++) {
+                    valor1 = +prompt(`Digite o valor a ser armazenado na linha ${i + j}, coluna ${j + 1} da primeira matriz:`)
+                    mostrarMatriz1 += matriz1[i][j] + "\t"                   
                 }
+                mostrarMatriz1 += "\n"
             }
+            console.log(mostrarMatriz1)
 
+            let matriz2 = []
+            let mostrarMatriz2 = ""
+            let valor2
+
+            for (let i = 0; i < 5; i++) {
+                matriz2[i] = []
+                for (let j = 0; j < 5; j++) {
+                    valor2 = +prompt(`Digite o valor a ser armazenado na linha ${i + j}, coluna ${j + 1} da primeira matriz:`) 
+                    mostrarMatriz2 += matriz2[i][j] + "\t"                   
+                }
+                mostrarMatriz2 += "\n"
+            }
+            console.log(mostrarMatriz2)
         }
     </script>
 </body>
