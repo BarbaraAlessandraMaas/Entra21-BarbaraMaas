@@ -1,6 +1,6 @@
 1) Leia um vetor de 10 posições. Calcule e escreva quantos valores pares ele possui.
 
-2) Escreva um programa que leia 5 numeros e os armazene em um vetor. Mostre o vetor, o 
+2) Escreva um programa que leia 5 números e os armazene em um vetor. Mostre o vetor, o 
 maior elemento e a posição que ele se encontra.
 
 3) Faça um programa que receba do usuario um vetor com 5 posições. Em seguida, mostre

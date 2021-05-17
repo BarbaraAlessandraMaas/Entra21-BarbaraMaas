@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercícios Array</title>
 </head>
 
 <body>
@@ -47,8 +47,8 @@
         //Exercício 3
         {
             let vetor = []
-            let maiorElemento = 0
-            let menorElemento = 0
+            let maiorElemento
+            let menorElemento
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
@@ -70,14 +70,338 @@
         {
             let vetor = []
             let vetor2 = []
+            let j = 0
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
             }
             for (let i = vetor.length - 1; i >= 0; i--) {
-                vetor2 = vetor[i]
+                vetor2[j] = vetor[i]
+                j++
             }
             console.log(`Primeiro vetor: ${vetor}\nSegundo vetor: ${vetor2}`)
+        }
+
+        //Exercício 5
+        {
+            let vetor = []
+            let nome
+            let flag
+
+            for (let i = 0; i < 5; i++) {
+                vetor[i] = String(prompt(`Digite o nome da ${i + 1}º pessoa:`))
+            }
+
+            for (let j = 0; j < vetor.length - 1; j++) {
+                if (j == 0) {
+                    nome = String(prompt("Agora, informe um nome a ser buscado no vetor:"))
+                }
+                vetor[j] == nome ? flag = true : flag = false
+            }
+
+            flag == true ? console.log(`Achei o nome ${nome} no vetor`) : console.log(`Não achei o nome ${nome} no vetor`)
+        }
+
+        //Exercício 6
+        {
+            let vetorA = [1, 0, 5, -2, -5, 7]
+            let soma = vetorA[0] + vetorA[1] + vetorA[5]
+            console.log(`A soma da posição 0, 1 e 5 é: ${soma}`)
+            vetorA[4] = 100
+
+            for (let i = 0; i < vetorA.length; i++) {
+                console.log(`Valor na posição ${i}: ${vetorA[i]}`)
+            }
+        }
+
+        //Exercício 7
+        {
+            let vetor = []
+            let vetor2 = []
+
+            for (let i = 0; i < 5; i++) {
+                vetor[i] = +prompt("Informe os valores a serem armazenados no vetor:")
+            }
+
+            for (let j = 0; j < 5; j++) {
+                vetor2[j] = vetor[j] ** 2
+            }
+
+            console.log(`Primeiro vetor: ${vetor}\nSegundo vetor: ${vetor2}`)
+        }
+
+        //Exercício 8
+        {
+            let valorDigitado
+            let vetorPar = []
+            let vetorPar2 = []
+            let j = 0
+
+            for (let i = 0; i < 6; i++) {
+                valorDigitado = +prompt("Digite um valor par:")
+                if (valorDigitado % 2 != 0) {
+                    i--
+                    alert("O valor informado não é par. Digite outro valor!")
+                    continue;
+                } else {
+                    vetorPar[i] = valorDigitado
+                }
+            }
+
+            for (let i = 5; i >= 0; i--) {
+                vetorPar2[i] = vetorPar[j]
+                j++
+            }
+
+            console.log(`Primeiro vetor: ${vetorPar}\nSegundo vetor: ${vetorPar2}`)
+        }
+
+        //Exercício 9
+        {
+            let vetor = []
+            let soma = 0
+
+            for (let i = 0; i < 8; i++) {
+                vetor[i] = +prompt("Digite os valores a serem armazenados no vetor:")
+            }
+
+            console.log(`O vetor é: ${vetor}`)
+
+            while (true) {
+                let x = +prompt("Informe a posição do vetor:")
+                let y = +prompt("Informe outra posição do vetor:")
+
+                if ((x >= 0 && x < 8) && (y >= 0 && y < 8)) {
+                    soma = vetor[x] + vetor[y]
+                    console.log(`Os valores correspondentes são:\nPosição ${x}: ${vetor[x]}\nPosição ${y}: ${vetor[y]}\nA soma é: ${soma}`)
+                    break;
+                } else {
+                    alert("Os valores informados para X ou Y estão incorretos. Digite-os novamente!")
+                }
+            }
+        }
+
+        //Exercício 10
+        {
+            let vetor = []
+            let contadorNegativos = 0
+            let soma = 0
+
+            for (let i = 0; i < 10; i++) {
+                vetor[i] = +prompt("Informe o valor a ser armazenado no vetor:")
+                vetor[i] < 0 ? contadorNegativos++ : soma += vetor[i]
+            }
+
+            console.log(`Vetor: ${vetor}\nQuantidade de negativos: ${contadorNegativos}\nSoma dos números positivos: ${soma}`)
+        }
+
+        //Exercício 11
+        {
+            let vetor = []
+            let maiorValor
+            let menorValor
+            let posicaoMaior = 0
+            let posicaoMenor = 0
+
+            for (let i = 0; i < 5; i++) {
+                vetor[i] = +prompt("Digite o valor a ser armazenado no vetor:")
+                if (i == 0) {
+                    maiorValor = vetor[i]
+                    menorValor = vetor[i]
+                }
+                if (vetor[i] > maiorValor) {
+                    maiorValor = vetor[i]
+                    posicaoMaior = i + 1
+                }
+                if (vetor[i] < menorValor) {
+                    menorValor = vetor[i]
+                    posicaoMenor = i + 1
+                }
+            }
+
+            console.log(`Valores armazenados no vetor: ${vetor}\nO maior valor é ${maiorValor}, e se encontra na posição ${posicaoMaior}\nO menor valor é ${menorValor}, e se encontra na posição ${posicaoMenor}`)
+        }
+
+        //Exercício 12
+        {
+            let vetor = []
+            let contador1 = 0
+            let contador2 = 0
+            let contador3 = 0
+            let contador4 = 0
+            let contador5 = 0
+            let contador6 = 0
+
+            for (let i = 0; i < 100; i++) {
+                vetor[i] = Math.floor(Math.random() * (7 - 1)) + 1;
+                switch (vetor[i]) {
+                    case 1:
+                        contador1++
+                        break;
+                    case 2:
+                        contador2++
+                        break;
+                    case 3:
+                        contador3++
+                        break;
+                    case 4:
+                        contador4++
+                        break;
+                    case 5:
+                        contador5++
+                        break;
+                    case 6:
+                        contador6++
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            console.log("A relação de valores com suas respectivas aparições é:")
+            console.log(`Número 1: ${contador1} vez(es)\nNúmero 2: ${contador2} vez(es)\nNúmero 3: ${contador3} vez(es)\nNúmero 4: ${contador4} vez(es)\nNúmero 5: ${contador5} vez(es)\nNúmero 6: ${contador6} vez(es)\n`)
+        }
+
+        //Exercício 13
+        {
+            let notas = []
+            let soma = 0
+            let i = 0
+            let maiorNota
+
+            while (true) {
+                notas[i] = +prompt("Informe as notas dos alunos:")
+                if (i == 0) {
+                    maiorNota = notas[i]
+                }
+                if (notas[i] >= 0) {
+                    if (notas[i] > maiorNota) {
+                        maiorNota = notas[i]
+                    }
+                    soma += notas[i]
+                    i++
+                } else {
+                    break;
+                }
+            }
+
+            let media = soma / i
+            console.log(`Média da turma: ${media.toFixed(2)}\nMaiorNota: ${maiorNota}`)
+        }
+
+        //Exercício 14
+        {
+            let vetor1 = []
+            let vetor2 = []
+            let saoIguais = 0
+
+            for (let i = 0; i < 5; i++) {
+                vetor1[i] = +prompt("Informe os valores a serem armazenados no primeiro vetor:")
+            }
+
+            for (let j = 0; j < 5; j++) {
+                vetor2[j] = +prompt("Informe os valores a serem armazenados no segundo vetor:")
+            }
+
+            console.log(`Primeiro vetor: ${vetor1}\nSegundo vetor: ${vetor2}`)
+
+            for (let k = 0; k < 5; k++) {
+                vetor1[k] == vetor2[k] ? saoIguais++ : saoIguais--
+            }
+
+            saoIguais == 5 ? console.log("Os vetores são iguais!") : console.log("Os vetores são diferentes")
+        }
+
+        //Exercício 15
+        {
+            let vetor1 = []
+            let vetor2 = []
+            let vetorInterseccao = []
+            let l = 0
+
+            for (let i = 0; i < 5; i++) {
+                vetor1[i] = String(prompt("Digite as letras a serem armazenadas no primeiro vetor"))
+            }
+
+            for (let j = 0; j < 5; j++) {
+                vetor2[j] = String(prompt("Digite as letras a serem armazenadas no segundo vetor:"))
+            }
+
+            for (let k = 0; k < 5; k++) {
+                for (let m = 0; m < 5; m++) {
+                    if (vetor1[k] == vetor2[m]) {
+                        vetorInterseccao[l] = vetor1[k]
+                        l++
+                    }
+                }
+            }
+
+            console.log(`Primeiro vetor: ${vetor1}\nSegundo vetor: ${vetor2}\nIntersecção: ${vetorInterseccao}`)
+        }
+
+        //Exercício 16
+        {
+            let valor1 = +prompt("Informe o primeiro valor do intervalo:")
+            let valor2 = +prompt("Informe o segundo valor do intervalo:")
+            let maiorValor
+            let menorValor
+
+            if (valor1 < valor2) {
+                maiorValor = valor2
+                menorValor = valor1
+            }
+
+            for (i = menorValor; i <= maiorValor; i += 2) {
+                console.log(i)
+            }
+        }
+
+        //Exercício 17 -- refazer
+        {
+            let vetor = []
+            let vetorCrescente = []
+            let menorValor
+
+            for (let i = 0; i < 10; i++) {
+                vetor[i] = Math.floor(Math.random() * (10 - 1)) + 1;
+                vetorCrescente[i] = vetor[i]
+            }
+
+            for (let j = 0; j < 10; j++) {
+                for (let k = 0; k < 9; k++) {
+                    if (vetorCrescente[j] < vetorCrescente[k]) {
+                        let aux = vetorCrescente[k]
+                        vetorCrescente[j] = vetorCrescente[k]
+                        vetorCrescente[k] = aux
+                    }
+                }
+            }
+
+            console.log(`Vetor: ${vetor}\nVetor crescente: ${vetorCrescente}`)
+        }
+
+        //Exercício 18
+        {
+            let vetor = []
+            let soma = 0
+            let impar = 1
+
+            for (let i = 0; i < 10; i++) {
+                vetor[i] = Math.floor(Math.random() * (10 - 1)) + 1;
+                vetor[i] % 2 == 0 ? soma += vetor[i] : impar *= vetor[i]
+            }
+
+            console.log(`Vetor: ${vetor}\nSoma dos números pares: ${soma}\nMultiplicação dos números ímpares: ${impar}`)
+        }
+
+        //Exercício 19 -- continuar
+        {
+            let vetor = []
+            let texto = "Sem trocar que o espinho é seco.\nSem trocar que seco é ser sol.\nSem trocar que algum espinho seco secará."
+            console.log(texto)
+
+            vetor = texto.split(", ")
+            console.log(vetor)
         }
     </script>
 </body>
