@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Matriz</title>
+</head>
+
+<body>
+    <script>
+        //Exercício 1
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+            let contador = 0
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt(`Digite um valor para a linha ${i + 1} e coluna ${j + 1}:`)
+                    if (matriz[i][j] > 10) contador++
+                    mostrarMatriz += matriz[i][j] + "\t"
+                }
+                mostrarMatriz += "\n"
+            }
+            console.log(mostrarMatriz)
+            console.log(`A matriz possi ${contador} valor(es) maior(es) do que 10`)
+        }
+
+        //Exercício 2
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+
+            for (let i = 0; i < 5; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 5; j++) {
+                    i == j ? matriz[i][j] = 1 : matriz[i][j] = 0
+                    mostrarMatriz += matriz[i][j] + "\t"
+                }
+                mostrarMatriz += "\n"
+            }
+            console.log(mostrarMatriz)
+        }
+
+        //Exercício 3
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+            let linha
+            let coluna
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = prompt(`Informe o valor a ser armazenado na linha ${i + 1}, coluna ${j + 1}:`)
+                    mostrarMatriz += matriz[i][j] + "\t"
+                }
+                mostrarMatriz += "\n"
+            }
+
+            console.log(mostrarMatriz)
+            let valor = prompt("Agora, informe um valor a ser encontrado no vetor:")
+
+            percorreFor:
+            for (let i = 0; i < 3; i++) {
+                for (j = 0; j < 3; j++) {
+                    if (valor === matriz[i][j]) {
+                        linha = i
+                        coluna = j
+                        break percorreFor;
+                    }
+                }
+            }
+
+            if (linha) {
+                console.log(`O valor ${valor} se encontra na linha ${linha + 1}, coluna ${coluna + 1}`)
+            } else {
+                console.log(`O valor ${valor} não foi encontrado`)
+            }
+        }
+
+        //Exercício 4
+        {
+            let matriz1 = []
+            let mostrarMatriz1 = ""
+
+            for (let i = 0; i < 3; i++) {
+                matriz1[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz1[i][j] = +prompt(`Digite o valor a ser armazenado na linha ${i + 1}, coluna ${j + 1} da primeira matriz:`)
+                    mostrarMatriz1 += matriz1[i][j] + "\t"
+                }
+                mostrarMatriz1 += "\n"
+            }
+            console.log(mostrarMatriz1)
+
+            let matriz2 = []
+            let mostrarMatriz2 = ""
+
+            for (let i = 0; i < 3; i++) {
+                matriz2[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz2[i][j] = +prompt(`Digite o valor a ser armazenado na linha ${i + 1}, coluna ${j + 1} da segunda matriz:`)
+                    mostrarMatriz2 += matriz2[i][j] + "\t"
+                }
+                mostrarMatriz2 += "\n"
+            }
+            console.log(mostrarMatriz2)
+
+            let matriz3 = []
+            let mostrarMatriz3 = ""
+
+            for (let i = 0; i < 3; i++) {
+                matriz3[i] = []
+                for (let j = 0; j < 3; j++) {
+                    if (matriz1[i][j] > matriz2[i][j]) {
+                        matriz3[i][j] = matriz1[i][j]
+                    } else {
+                        matriz3[i][j] = matriz2[i][j]
+                    }
+                    mostrarMatriz3 += matriz3[i][j] + "\t"
+                }
+                mostrarMatriz3 += "\n"
+            }
+            console.log(mostrarMatriz3)
+        }
+
+        //Exercício 5 -- refazer
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+            let soma = 0
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt("Digite os valores a serem armazenados na matriz:")
+                    mostrarMatriz += matriz[i][j] + "\t"
+                }
+                mostrarMatriz += "\n"
+            }
+
+            soma += matriz[0][1] + matriz[0][2] + matriz[1][2]
+            console.log(`${mostrarMatriz}\nA soma dos elementos que estão acima da diagona principal é ${soma}`)
+        }
+
+        //Exercício 6
+        {
+            let matriz = []
+            let mostrarMatriz = ""
+            let soma = 0
+            let media
+
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 6; j++) {
+                    if (j == 0) {
+                        matriz[i][j] = String(prompt("Informe o nome do aluno:"))
+                        mostrarMatriz += matriz[i][j] + "\t"
+                    } else if (j < 4) {
+                        matriz[i][j] = +prompt(`Informe a ${j}ª nota do aluno:`)
+                        mostrarMatriz += matriz[i][j] + "\t"
+                        soma += matriz[i][j]
+                    } else if (j == 4) {
+                        media = soma / 3
+                        matriz[i][j] = media.toFixed(2)
+                        mostrarMatriz += matriz[i][j] + "\t"
+                        soma = 0
+                    } else if (j == 5) {
+                        media >= 6 ? matriz[i][j] = "Aprovado!" : matriz[i][j] = "Reprovado!"
+                        mostrarMatriz += matriz[i][j]
+                    }
+                }
+                mostrarMatriz += "\n"
+            }
+
+            console.log(mostrarMatriz)
+        }
+    </script>
+</body>
+
+</html>

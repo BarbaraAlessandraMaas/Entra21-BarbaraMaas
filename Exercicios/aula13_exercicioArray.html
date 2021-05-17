@@ -92,14 +92,19 @@
                 vetor[i] = String(prompt(`Digite o nome da ${i + 1}º pessoa:`))
             }
 
-            for (let j = 0; j < vetor.length - 1; j++) {
+            for (let j = 0; j < vetor.length; j++) {
                 if (j == 0) {
                     nome = String(prompt("Agora, informe um nome a ser buscado no vetor:"))
                 }
-                vetor[j] == nome ? flag = true : flag = false
+                if (vetor[j] == nome) {
+                    flag = true
+                    break;
+                } else {
+                    flag = false
+                }
             }
 
-            flag == true ? console.log(`Achei o nome ${nome} no vetor`) : console.log(`Não achei o nome ${nome} no vetor`)
+            flag ? console.log(`Achei o nome ${nome} no vetor`) : console.log(`Não achei o nome ${nome} no vetor`)
         }
 
         //Exercício 6
@@ -360,7 +365,6 @@
         {
             let vetor = []
             let vetorCrescente = []
-            let menorValor
 
             for (let i = 0; i < 10; i++) {
                 vetor[i] = Math.floor(Math.random() * (10 - 1)) + 1;
@@ -394,14 +398,80 @@
             console.log(`Vetor: ${vetor}\nSoma dos números pares: ${soma}\nMultiplicação dos números ímpares: ${impar}`)
         }
 
-        //Exercício 19 -- continuar
+        //Exercício 19
         {
-            let vetor = []
-            let texto = "Sem trocar que o espinho é seco.\nSem trocar que seco é ser sol.\nSem trocar que algum espinho seco secará."
-            console.log(texto)
+            let texto = " Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará. "
+            console.log(`Texto original:\n${texto}`)
 
-            vetor = texto.split(", ")
-            console.log(vetor)
+            let vetor = texto.split(" ")
+
+            for (let i = 0; i < vetor.length; i++) {
+                switch (vetor[i]) {
+                    case "trocar":
+                        vetor[i] = "sacar";
+                    default:
+                        break;
+                }
+            }
+
+            let stringVetor = vetor.join(" ")
+            console.log(`Texto modificado:\n${stringVetor}`)
+        }
+
+        //Exercício 20
+        {
+            let notas = []
+            let soma = 0
+            let notasAcimaMedia = []
+            let j = 0
+
+            for (let i = 0; i < 10; i++) {
+                notas[i] = +prompt("Informe as notas da turma:")
+                if (notas[i] >= 6) {
+                    notasAcimaMedia[j] = notas[i]
+                    j++
+                }
+                soma += notas[i]
+            }
+
+            let media = soma / 10
+            console.log(`A média da turma é ${media}\nDas 10 notas digitadas, ${j} estão na média ou acima dela: ${notasAcimaMedia.join(", ")}`)
+        }
+
+        //Exercício 21
+        {
+            let vetorNome = []
+            let vetorPreco = []
+            let precoInferior = 0
+            let nomeProdutos = []
+            let soma = 0
+            let a = 0
+            let j = 0
+
+            for (let i = 0; i < 5; i++) {
+                vetorNome[i] = String(prompt(`Informe o nome do ${i + 1}º produto:`))
+                vetorPreco[i] = +prompt(`Informe o preço do ${i + 1}º produto:`)
+                if (vetorPreco[i] < 50) {
+                    precoInferior++
+                }
+                if (vetorPreco[i] > 50 && vetorPreco[i] < 100) {
+                    nomeProdutos[j] = vetorNome[i]
+                    j++
+                }
+                if (vetorPreco[i] >= 100) {
+                    soma += vetorPreco[i]
+                    a = i
+                }
+            }
+
+            for (let b = 0; b < 5; b++) {
+                console.log(`${vetorNome[b]}: R$${vetorPreco[b]}\n`)
+            }
+
+            let media = soma / a
+            console.log(`${precoInferior} produtos tem preço inferior a R$50,00`)
+            console.log(`Os produtos que tem preço entre R$50,00 e R$100,00 são: ${nomeProdutos}`)
+            console.log(`A média dos produtos de preço superior a R$100,00 é ${media.toFixed(2)}`)
         }
     </script>
 </body>
