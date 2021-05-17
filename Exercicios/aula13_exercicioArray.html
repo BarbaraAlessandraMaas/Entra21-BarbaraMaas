@@ -272,13 +272,10 @@
             let notas = []
             let soma = 0
             let i = 0
-            let maiorNota
+            let maiorNota = 0
 
             while (true) {
                 notas[i] = +prompt("Informe as notas dos alunos:")
-                if (i == 0) {
-                    maiorNota = notas[i]
-                }
                 if (notas[i] >= 0) {
                     if (notas[i] > maiorNota) {
                         maiorNota = notas[i]
