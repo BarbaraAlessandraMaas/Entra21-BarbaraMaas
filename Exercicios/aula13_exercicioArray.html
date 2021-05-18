@@ -28,13 +28,12 @@
         {
             let vetor = []
             let maiorElemento = 0
-            let posicao
+            let posicao = 0
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
                 if (i == 0) {
                     maiorElemento = vetor[i]
-                    posicao = 0
                 }
                 if (vetor[i] > maiorElemento) {
                     maiorElemento = vetor[i]
@@ -70,14 +69,10 @@
         {
             let vetor = []
             let vetor2 = []
-            let j = 0
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = +prompt(`Digite o ${i + 1}º número:`)
-            }
-            for (let i = vetor.length - 1; i >= 0; i--) {
-                vetor2[j] = vetor[i]
-                j++
+                vetor2.unshift(vetor[i])
             }
             console.log(`Primeiro vetor: ${vetor}\nSegundo vetor: ${vetor2}`)
         }
@@ -85,22 +80,18 @@
         //Exercício 5
         {
             let vetor = []
-            let nome
             let flag
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = String(prompt(`Digite o nome da ${i + 1}º pessoa:`))
             }
 
+            let nome = String(prompt("Agora, informe um nome a ser buscado no vetor:"))
+
             for (let j = 0; j < vetor.length; j++) {
-                if (j == 0) {
-                    nome = String(prompt("Agora, informe um nome a ser buscado no vetor:"))
-                }
                 if (vetor[j] == nome) {
                     flag = true
                     break;
-                } else {
-                    flag = false
                 }
             }
 
@@ -140,7 +131,6 @@
             let valorDigitado
             let vetorPar = []
             let vetorPar2 = []
-            let j = 0
 
             for (let i = 0; i < 6; i++) {
                 valorDigitado = +prompt("Digite um valor par:")
@@ -150,12 +140,8 @@
                     continue;
                 } else {
                     vetorPar[i] = valorDigitado
+                    vetorPar2.unshift(vetorPar[i])
                 }
-            }
-
-            for (let i = 5; i >= 0; i--) {
-                vetorPar2[i] = vetorPar[j]
-                j++
             }
 
             console.log(`Primeiro vetor: ${vetorPar}\nSegundo vetor: ${vetorPar2}`)
@@ -203,60 +189,47 @@
         //Exercício 11
         {
             let vetor = []
-            let maiorValor
-            let menorValor
             let posicaoMaior = 0
             let posicaoMenor = 0
 
             for (let i = 0; i < 5; i++) {
                 vetor[i] = +prompt("Digite o valor a ser armazenado no vetor:")
-                if (i == 0) {
-                    maiorValor = vetor[i]
-                    menorValor = vetor[i]
-                }
-                if (vetor[i] > maiorValor) {
-                    maiorValor = vetor[i]
+                if (vetor[i] > vetor[posicaoMaior]) {
                     posicaoMaior = i + 1
                 }
-                if (vetor[i] < menorValor) {
-                    menorValor = vetor[i]
+                if (vetor[i] < vetor[posicaoMenor]) {
                     posicaoMenor = i + 1
                 }
             }
 
-            console.log(`Valores armazenados no vetor: ${vetor}\nO maior valor é ${maiorValor}, e se encontra na posição ${posicaoMaior}\nO menor valor é ${menorValor}, e se encontra na posição ${posicaoMenor}`)
+            console.log(`Valores armazenados no vetor: ${vetor}\nO maior valor se encontra na posição ${posicaoMaior}\nO menor valor se encontra na posição ${posicaoMenor}`)
         }
 
         //Exercício 12
         {
             let vetor = []
-            let contador1 = 0
-            let contador2 = 0
-            let contador3 = 0
-            let contador4 = 0
-            let contador5 = 0
-            let contador6 = 0
+            let contador = []
 
             for (let i = 0; i < 100; i++) {
                 vetor[i] = Math.floor(Math.random() * (7 - 1)) + 1;
                 switch (vetor[i]) {
                     case 1:
-                        contador1++
+                        contador[0]++
                         break;
                     case 2:
-                        contador2++
+                        contador[1]++
                         break;
                     case 3:
-                        contador3++
+                        contador[2]++
                         break;
                     case 4:
-                        contador4++
+                        contador[3]++
                         break;
                     case 5:
-                        contador5++
+                        contador[4]++
                         break;
                     case 6:
-                        contador6++
+                        contador[5]++
                         break;
                     default:
                         break;
@@ -264,7 +237,9 @@
             }
 
             console.log("A relação de valores com suas respectivas aparições é:")
-            console.log(`Número 1: ${contador1} vez(es)\nNúmero 2: ${contador2} vez(es)\nNúmero 3: ${contador3} vez(es)\nNúmero 4: ${contador4} vez(es)\nNúmero 5: ${contador5} vez(es)\nNúmero 6: ${contador6} vez(es)\n`)
+            for (let i = 0; i < 6; i++) {
+                console.log(`Número ${i + 1}: ${contador[i]} vez(es)`)
+            }
         }
 
         //Exercício 13
@@ -303,14 +278,10 @@
 
             for (let j = 0; j < 5; j++) {
                 vetor2[j] = +prompt("Informe os valores a serem armazenados no segundo vetor:")
+                vetor1[j] == vetor2[j] ? saoIguais++ : saoIguais--
             }
 
             console.log(`Primeiro vetor: ${vetor1}\nSegundo vetor: ${vetor2}`)
-
-            for (let k = 0; k < 5; k++) {
-                vetor1[k] == vetor2[k] ? saoIguais++ : saoIguais--
-            }
-
             saoIguais == 5 ? console.log("Os vetores são iguais!") : console.log("Os vetores são diferentes")
         }
 
@@ -358,7 +329,7 @@
             }
         }
 
-        //Exercício 17 -- refazer
+        //Exercício 17
         {
             let vetor = []
             let vetorCrescente = []
@@ -415,7 +386,7 @@
             console.log(`Texto modificado:\n${stringVetor}`)
         }
 
-        //Exercício 20
+        //Exercício 20 -- refazer com a media das notas
         {
             let notas = []
             let soma = 0
@@ -443,7 +414,6 @@
             let nomeProdutos = []
             let soma = 0
             let a = 0
-            let j = 0
 
             for (let i = 0; i < 5; i++) {
                 vetorNome[i] = String(prompt(`Informe o nome do ${i + 1}º produto:`))
@@ -452,8 +422,7 @@
                     precoInferior++
                 }
                 if (vetorPreco[i] > 50 && vetorPreco[i] < 100) {
-                    nomeProdutos[j] = vetorNome[i]
-                    j++
+                    nomeProdutos.push(vetorNome[i])
                 }
                 if (vetorPreco[i] >= 100) {
                     soma += vetorPreco[i]

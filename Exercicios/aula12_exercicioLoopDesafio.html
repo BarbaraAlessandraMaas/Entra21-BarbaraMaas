@@ -11,7 +11,75 @@
     <script>
         //Exercício 1
         {
-            
+            let base = +prompt("Informe um número para a base:")
+            let expoente = +prompt("Informe um número para ser o expoente:")
+            let resultado = 1
+
+            for (let i = 0; i < expoente; i++) {
+                resultado *= base
+            }
+
+            console.log(`O número ${base} elevado a ${expoente} equivale a ${resultado}`)
+        }
+
+        //Exercício 2
+        {
+            let numero = +prompt("Digite um número que determine a sequência de Fibonacci:")
+            let contador = 1
+            let anterior = 0
+            let fibonacci = ""
+
+            if (numero <= 0) {
+                alert("Não foi informado um número válido")
+            } else if (numero == 1) {
+                fibonacci += `${contador} `
+            } else if (numero == 2) {
+                fibonacci += `${contador}, ${contador} `
+            } else {
+                for (let i = 0; i < numero; i++) {
+                    if (i == numero - 1) {
+                        fibonacci += `${contador} `
+                    } else {
+                        fibonacci += `${contador}, `
+                        let proximo = anterior + contador
+                        anterior = contador
+                        contador = proximo
+                    }
+                }
+            }
+            console.log(fibonacci)
+        }
+
+        //Exercício 3
+        {
+            let contador1 = 0
+            let contador2 = 0
+            let contador3 = 0
+
+            while (true) {
+                let numero = +prompt("Digite vários números positivos:")
+                
+                if (numero < 0) {
+                    break;
+                } else {
+                    if (numero <= 25) {
+                        contador1++
+                    } else if (numero <= 50) {
+                        contador2++
+                    } else if (numero <= 75) {
+                        contador3++
+                    }
+                }
+            }
+            console.log(`Quantidade de números no intervalo [0-25]: ${contador1}\nQuantidade de números no intervalo [26-50: ${contador2}\nQuantidade de números no intervalo [51-75]: ${contador3}`)
+        }
+
+        //Exercício 4
+        {
+            let numero = String(prompt("Informe um número inteiro positivo, para obter ele invertido:"))
+            let caractere = numero.split(", ")
+            console.log(caractere)
+
         }
     </script>
 </body>

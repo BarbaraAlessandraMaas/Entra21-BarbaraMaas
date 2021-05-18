@@ -127,7 +127,7 @@
             console.log(mostrarMatriz3)
         }
 
-        //Exercício 5 -- refazer
+        //Exercício 5
         {
             let matriz = []
             let mostrarMatriz = ""
@@ -137,12 +137,13 @@
                 matriz[i] = []
                 for (let j = 0; j < 3; j++) {
                     matriz[i][j] = +prompt("Digite os valores a serem armazenados na matriz:")
+                    if (i < j) {
+                        soma += matriz[i][j]
+                    }
                     mostrarMatriz += matriz[i][j] + "\t"
                 }
                 mostrarMatriz += "\n"
             }
-
-            soma += matriz[0][1] + matriz[0][2] + matriz[1][2]
             console.log(`${mostrarMatriz}\nA soma dos elementos que estão acima da diagona principal é ${soma}`)
         }
 
