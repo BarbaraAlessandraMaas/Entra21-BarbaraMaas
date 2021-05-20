@@ -77,9 +77,15 @@
         //Exercício 4
         {
             let numero = String(prompt("Informe um número inteiro positivo, para obter ele invertido:"))
-            let caractere = numero.split(", ")
-            console.log(caractere)
+            let caractere = numero.split("")
+            let numeroInverso = []
 
+            for (let i = 0; i < caractere.length; i++) {
+                numeroInverso.unshift(caractere[i]);
+            }
+
+            let stringVetor = numeroInverso.join("");
+            console.log(`O número digitado foi: ${numero}\nO inverso do número é: ${stringVetor}`)
         }
     </script>
 </body>

@@ -63,7 +63,7 @@
             console.log(mostrarMatriz)
             let valor = prompt("Agora, informe um valor a ser encontrado no vetor:")
 
-            percorreFor:
+            percorreFor: //label
             for (let i = 0; i < 3; i++) {
                 for (j = 0; j < 3; j++) {
                     if (valor === matriz[i][j]) {
@@ -115,11 +115,7 @@
             for (let i = 0; i < 3; i++) {
                 matriz3[i] = []
                 for (let j = 0; j < 3; j++) {
-                    if (matriz1[i][j] > matriz2[i][j]) {
-                        matriz3[i][j] = matriz1[i][j]
-                    } else {
-                        matriz3[i][j] = matriz2[i][j]
-                    }
+                    matriz1[i][j] > matriz2[i][j] ? matriz3[i][j] = matriz1[i][j] : matriz3[i][j] = matriz2[i][j]
                     mostrarMatriz3 += matriz3[i][j] + "\t"
                 }
                 mostrarMatriz3 += "\n"
@@ -176,7 +172,7 @@
                 }
                 mostrarMatriz += "\n"
             }
-
+            //Poderia ter usado push para acrescentar a média e o satus do aluno no vetor
             console.log(mostrarMatriz)
         }
     </script>
