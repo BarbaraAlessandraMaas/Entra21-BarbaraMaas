@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        //Exercício 1
+        {
+            let ehPositivo = numero => numero > 0
+
+            let numero = +prompt("Digite um número:")
+            console.log(`O número ${numero} é positivo? ${ehPositivo(numero)}`)
+        }
+
+        //Exercício 2
+        {
+            let minimo = (a, b) => a < b ? a : b;
+
+            let a = +prompt("Digite o valor A:")
+            let b = +prompt("Digite o valor B:")
+
+            console.log(`O menor valor entre ${a} e ${b} é: ${minimo(a, b)}`)
+        }
+
+        //Exercício 3
+        {
+            let potencia = (a, b) => Math.pow(a, b);
+
+            let base = +prompt("Digite um valor para a base:")
+            let expoente = +prompt("Digite um valor para o expoente:")
+
+            console.log(`${base} elevado a ${expoente} é igual a ${potencia(base, expoente)}`)
+        }
+
+        //Exercício 4
+        {
+            let nota = []
+            let soma = 0
+            let media = (soma) => soma / 3
+
+            for (let i = 0; i < 3; i++) {
+                nota[i] = +prompt(`Informe a ${i + 1}ª nota:`)
+                soma += nota[i]
+            }
+            console.log(`Notas digitadas: ${nota}\nMédia: ${media(soma)}`)
+        }
+
+        //Exercício 5
+        {
+            function conceitoMedia(media) {
+                if (media < 0) {
+                    return "A média não pode ser negativa!"
+                } else if (media < 5) {
+                    return "D"
+                } else if (media < 7) {
+                    return "C"
+                } else if (media < 9) {
+                    return "B"
+                } else if (media <= 10) {
+                    return "A"
+                }
+            }
+
+            let media = +prompt("Informe a média do aluno:")
+            console.log(conceitoMedia(media))
+        }
+
+        //Exercício 6
+        {
+            let resultado = 0
+
+            function pesoIdeal(altura, sexo) {
+                switch (sexo) {
+                    case "M":
+                        return (72.7 * altura - 58).toFixed(2);
+                    case "F":
+                        return (62.1 * altura - 44.7).toFixed(2);
+                    default:
+                        return "inválido, pois não foi informado o sexo do indivíduo"
+                }
+            }
+
+            let sexo = prompt("Informe o sexo do indivíduo:\nF (Feminino)\nM (Masculino)").toUpperCase()
+            let altura = +prompt("Agora, informe a altura:")
+            console.log(`Sexo: ${sexo}\nAltura: ${altura}\nPeso ideal: ${pesoIdeal(altura, sexo)}`)
+        }
+
+        //Exercício 7
+        {
+            let vetor = []
+            let elementosExtremidades = []
+
+            let valoresExtremidades = vetor => {
+                elementosExtremidades = [vetor[0], vetor[ultimaPosicao]];
+                return elementosExtremidades;
+            }
+
+            for (let i = 0; i < 5; i++) vetor[i] = prompt(`Informe o ${i + 1}º elemento:`)
+            ultimaPosicao = vetor.length - 1;
+            console.log(`Vetor informado: ${vetor}\nElementos das extremidades: ${valoresExtremidades(vetor)}`)
+        }
+
+        //Exercício 8
+        {
+            let simbolo = ""
+            let toString = numero => {
+                for (let i = 0; i < numero; i++) simbolo += "#"
+                return simbolo;
+            }
+
+            let numero = +prompt("Informe um número:")
+            console.log(`String correspondente ao número ${numero}: ${toString(numero)}`)
+        }
+
+        //Exercício 9
+        {
+            let vetorRepeticao = []
+
+            let repetirElemento = (elemento, repeticao) => {
+                for (let i = 0; i < repeticao; i++) vetorRepeticao.push(elemento);
+                return vetorRepeticao;
+            }
+
+            let elemento = prompt("Informe o elemento a ser repetido:")
+            let repeticao = +prompt("Informe o número de vezes que o elemento será repetido:")
+            console.log(`O elemento ${elemento} foi repetido ${repeticao} vezes: ${repetirElemento(elemento, repeticao)}`)
+        }
+
+        //Exercício 10
+        {
+            let converterAno = ano => { return new Date().getFullYear() - ano }
+
+            let anoNascimento = +prompt("Informe seu ano de nascimento:")
+            console.log(converterAno(anoNascimento))
+        }
+
+        //Exercício 11
+        {
+            let vetor = []
+            
+            function modificarVetor(vetor) {
+                vetor[1] = 10;
+                vetor[2] = 30
+                return vetor;
+            }
+
+            for (let i = 0; i < 5; i++) vetor[i] = prompt(`Informe o ${i + 1} elemento do vetor:`)
+
+            console.log(`Vetor informado: ${vetor}\nVetor modificado: ${modificarVetor(vetor)}`)
+        }
+
+        //Exercício 12
+        {
+            let vetor = []
+            let maiorValor = 0
+
+            let obterMaiorValor = (vetor) => { if (vetor > maiorValor) maiorValor = vetor }
+
+            for (let i = 0; i < 50; i++) {
+                vetor[i] = Math.floor(Math.random() * (1000 - 1)) + 1;
+                obterMaiorValor(vetor[i])
+            }
+            console.log(`Vetor gerado: ${vetor}\nMaior valor: ${maiorValor}`)
+        }
+    </script>
+</body>
+
+</html>
