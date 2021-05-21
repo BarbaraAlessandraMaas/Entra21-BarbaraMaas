@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aula 17 - Exercício Função</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         //Exercício 1
         {
-            let ehPositivo = numero => numero > 0
+            let ehPositivo = numero => numero > 0;
 
             let numero = +prompt("Digite um número:")
             console.log(`O número ${numero} é positivo? ${ehPositivo(numero)}`)
@@ -21,12 +21,12 @@
 
         //Exercício 2
         {
-            let minimo = (a, b) => a < b ? a : b;
+            let obterMinimo = (a, b) => a < b ? a : b;
 
             let a = +prompt("Digite o valor A:")
             let b = +prompt("Digite o valor B:")
 
-            console.log(`O menor valor entre ${a} e ${b} é: ${minimo(a, b)}`)
+            console.log(`O menor valor entre ${a} e ${b} é: ${obterMinimo(a, b)}`)
         }
 
         //Exercício 3
@@ -43,7 +43,7 @@
         {
             let nota = []
             let soma = 0
-            let media = (soma) => soma / 3
+            let media = (soma) => soma / 3;
 
             for (let i = 0; i < 3; i++) {
                 nota[i] = +prompt(`Informe a ${i + 1}ª nota:`)
@@ -54,7 +54,7 @@
 
         //Exercício 5
         {
-            function conceitoMedia(media) {
+            function obterConceitoMedia(media) {
                 if (media < 0) {
                     return "A média não pode ser negativa!"
                 } else if (media < 5) {
@@ -69,14 +69,14 @@
             }
 
             let media = +prompt("Informe a média do aluno:")
-            console.log(conceitoMedia(media))
+            console.log(obterConceitoMedia(media))
         }
 
         //Exercício 6
         {
             let resultado = 0
 
-            function pesoIdeal(altura, sexo) {
+            function obterPesoIdeal(altura, sexo) {
                 switch (sexo) {
                     case "M":
                         return (72.7 * altura - 58).toFixed(2);
@@ -89,7 +89,7 @@
 
             let sexo = prompt("Informe o sexo do indivíduo:\nF (Feminino)\nM (Masculino)").toUpperCase()
             let altura = +prompt("Agora, informe a altura:")
-            console.log(`Sexo: ${sexo}\nAltura: ${altura}\nPeso ideal: ${pesoIdeal(altura, sexo)}`)
+            console.log(`Sexo: ${sexo}\nAltura: ${altura}\nPeso ideal: ${obterPesoIdeal(altura, sexo)}`)
         }
 
         //Exercício 7
@@ -97,26 +97,26 @@
             let vetor = []
             let elementosExtremidades = []
 
-            let valoresExtremidades = vetor => {
+            let obterExtremidades = vetor => {
                 elementosExtremidades = [vetor[0], vetor[ultimaPosicao]];
                 return elementosExtremidades;
             }
 
             for (let i = 0; i < 5; i++) vetor[i] = prompt(`Informe o ${i + 1}º elemento:`)
             ultimaPosicao = vetor.length - 1;
-            console.log(`Vetor informado: ${vetor}\nElementos das extremidades: ${valoresExtremidades(vetor)}`)
+            console.log(`Vetor informado: ${vetor}\nElementos das extremidades: ${obterExtremidades(vetor)}`)
         }
 
         //Exercício 8
         {
             let simbolo = ""
-            let toString = numero => {
+            let converterSimbolo = numero => {
                 for (let i = 0; i < numero; i++) simbolo += "#"
                 return simbolo;
             }
 
             let numero = +prompt("Informe um número:")
-            console.log(`String correspondente ao número ${numero}: ${toString(numero)}`)
+            console.log(`String correspondente ao número ${numero}: ${converterSimbolo(numero)}`)
         }
 
         //Exercício 9
@@ -135,16 +135,16 @@
 
         //Exercício 10
         {
-            let converterAno = ano => { return new Date().getFullYear() - ano }
+            let converterIdade = ano => new Date().getFullYear() - ano
 
             let anoNascimento = +prompt("Informe seu ano de nascimento:")
-            console.log(converterAno(anoNascimento))
+            console.log(converterIdade(anoNascimento))
         }
 
         //Exercício 11
         {
             let vetor = []
-            
+
             function modificarVetor(vetor) {
                 vetor[1] = 10;
                 vetor[2] = 30
@@ -160,14 +160,146 @@
         {
             let vetor = []
             let maiorValor = 0
+            let menorValor
 
-            let obterMaiorValor = (vetor) => { if (vetor > maiorValor) maiorValor = vetor }
+            function obterValores(vetor) {
+                if (vetor > maiorValor) maiorValor = vetor
+                if (vetor < menorValor) menorValor = vetor
+            }
 
             for (let i = 0; i < 50; i++) {
                 vetor[i] = Math.floor(Math.random() * (1000 - 1)) + 1;
-                obterMaiorValor(vetor[i])
+                if (i == 0) menorValor = vetor[i]
+                obterValores(vetor[i])
             }
-            console.log(`Vetor gerado: ${vetor}\nMaior valor: ${maiorValor}`)
+            console.log(`Vetor gerado: ${vetor}\nMaior valor: ${maiorValor}\nMenor valor: ${menorValor}`)
+        }
+
+        //Exercício 13
+        {
+            let ano = +prompt("Informe sua idade:\nAnos:")
+            let meses = +prompt("Informe sua idade:\nMeses:")
+            let dias = +prompt("Informe sua idade:\nDias:")
+
+            let converterIdade = (ano, mes, dia) => (ano * 365) + (mes * 30) + dia
+
+            console.log(`A conversão de ${ano} anos, ${meses} meses e ${dias} dias para dias é: ${converterIdade(ano, meses, dias)}`)
+        }
+
+        //Exercício 14
+        {
+            let valor = +prompt("Informe um valor inteiro positivo:")
+            let vetorDivisores = []
+
+            valor > 0 ? obterDivisores(valor) : console.log(`O valor ${valor} não é positivo!`)
+
+            function obterDivisores(valor) {
+                for (let i = 1; i <= valor; i++) {
+                    if (valor % i == 0) vetorDivisores.push(i)
+                }
+                console.log(`Os divisores de ${valor} são: ${vetorDivisores}`)
+            }
+        }
+
+        //Execício 15
+        {
+            let valor = +prompt("Informe um valor inteiro positivo:")
+            let resultado = 1
+
+            valor > 0 ? obterFatorial(valor) : console.log(`O valor ${valor} não é positivo!`)
+
+            function obterFatorial(valor) {
+                for (let i = valor; i >= 1; i--) resultado *= i
+                console.log(`O resultado de ${valor}! é: ${resultado}`)
+            }
+        }
+
+        //Exercício 16
+        {
+            let valor = +prompt("Informe um valor positivo para verificar se ele é perfeito:")
+            let soma = 0
+
+            valor > 0 ? ehPerfeito(valor) : console.log(`O valor ${valor} não é positivo!`)
+
+            function ehPerfeito(valor) {
+                for (let i = 1; i < valor; i++) {
+                    if (valor % i == 0) soma += i
+                }
+            }
+
+            valor == soma ? console.log(`O valor ${valor} é perfeito`) : console.log(`O valor ${valor} não é perfeito`)
+        }
+
+        //Exercício 17
+        {
+            let vetor = []
+
+            let ordenarVetor = vetor => vetor.sort(obterDecrescente)
+            let obterDecrescente = (x, y) => y - x
+
+            for (let i = 0; i < 50; i++) {
+                vetor[i] = Math.floor(Math.random() * (51 - 1)) + 1;
+            }
+
+            console.log(`Vetor decrescente: ${ordenarVetor(vetor)}`)
+        }
+
+        //Exercício 18
+        {
+            function calcularBaskhara(a, b, c) {
+                let delta = b * b - 4 * a * c
+                if (delta < 0) {
+                    console.log(`O delta resultou negativo: ${delta}\nA equação não pode continuar!`)
+                } else {
+                    let x1 = (-b + Math.sqrt(delta)) / (2 * a)
+                    let x2 = (-b - Math.sqrt(delta)) / (2 * a)
+                    console.log(`Números informados: ${a}, ${b}, ${c}\nO delta foi de ${delta}\nO resultado de X1 é ${x1.toFixed(2)}, e X2 é ${x2.toFixed(2)}`)
+                }
+            }
+            let a = +prompt("Cáluclo de Baskhara:\nInforme o valor de a:")
+            let b = +prompt("Cáluclo de Baskhara:\nInforme o valor de b:")
+            let c = +prompt("Cáluclo de Baskhara:\nInforme o valor de c:")
+
+            a == 0 ? console.log("O valor de a não pode ser 0!") : calcularBaskhara(a, b, c);
+        }
+
+        //Exercício 19
+        {
+            let vetor = []
+            let vetorPar = []
+
+            function obterVetorPar(vetor) {
+                for (let i = 0; i < vetor.length; i += 2) {
+                    if (vetor[i] % 2 == 0) vetorPar.push(vetor[i])
+                }
+                return vetorPar
+            }
+
+            for (let i = 0; i < 10; i++) vetor[i] = Math.floor(Math.random() * (11 - 1)) + 1
+            
+            console.log(`Vetor inicial: ${vetor}\nVetor de números pares em posição pares: ${obterVetorPar(vetor)}`)
+        }
+
+        //Exercício 20
+        {
+            let numero = +prompt("Inorme um número de 1 a 10 para participar do sorteio:")
+            numero >= 0 && numero <= 10 ? verificarSorteio(numero) : alert("O número informado precisa ser entre 0 e 10!")
+
+            function verificarSorteio(numero) {
+                let numeroRandom = Math.floor(Math.random() * (11 - 1)) + 1
+                numero == numeroRandom ? console.log(`Parabéns, o número sorteado foi ${numero}!`) : console.log(`Que pena, o número sorteado foi ${numeroRandom}`)
+            }
+        }
+
+        //Exercício 21
+        {
+            let ano = +prompt("Informe um ano:")
+            
+            function ehBissexto(ano) {
+                if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) return true;
+            }
+
+            ehBissexto(ano) ? console.log(`O ano ${ano} é bissexto`) : console.log(`O ano ${ano} não é bissexto`)
         }
     </script>
 </body>
