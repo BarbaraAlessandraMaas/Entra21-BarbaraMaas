@@ -31,12 +31,12 @@
 
         //Exercício 3
         {
-            let potencia = (a, b) => Math.pow(a, b);
+            let obterPotencia = (a, b) => Math.pow(a, b);
 
             let base = +prompt("Digite um valor para a base:")
             let expoente = +prompt("Digite um valor para o expoente:")
 
-            console.log(`${base} elevado a ${expoente} é igual a ${potencia(base, expoente)}`)
+            console.log(`${base} elevado a ${expoente} é igual a ${obterPotencia(base, expoente)}`)
         }
 
         //Exercício 4
@@ -54,18 +54,21 @@
 
         //Exercício 5
         {
+            let resultado;
+
             function obterConceitoMedia(media) {
-                if (media < 0) {
-                    return "A média não pode ser negativa!"
+                if (media < 0 || media > 10) {
+                    resultado = "A média não pode ser negativa!"
                 } else if (media < 5) {
-                    return "D"
+                    resultado = "D"
                 } else if (media < 7) {
-                    return "C"
+                    resultado = "C"
                 } else if (media < 9) {
-                    return "B"
-                } else if (media <= 10) {
-                    return "A"
+                    resultado = "B"
+                } else {
+                    resultado = "A"
                 }
+                return resultado;
             }
 
             let media = +prompt("Informe a média do aluno:")
@@ -74,21 +77,23 @@
 
         //Exercício 6
         {
-            let resultado = 0
+            let resultado
 
             function obterPesoIdeal(altura, sexo) {
                 switch (sexo) {
                     case "M":
-                        return (72.7 * altura - 58).toFixed(2);
+                        resultado = (72.7 * altura - 58).toFixed(2);
                     case "F":
-                        return (62.1 * altura - 44.7).toFixed(2);
+                        resultado = (62.1 * altura - 44.7).toFixed(2);
                     default:
-                        return "inválido, pois não foi informado o sexo do indivíduo"
+                        resultado = "inválido, pois não foi informado o sexo do indivíduo"
                 }
+                return resultado;
             }
 
             let sexo = prompt("Informe o sexo do indivíduo:\nF (Feminino)\nM (Masculino)").toUpperCase()
-            let altura = +prompt("Agora, informe a altura:")
+            let altura = prompt("Agora, informe a altura:")
+            altura = +altura.replace(",", ".")
             console.log(`Sexo: ${sexo}\nAltura: ${altura}\nPeso ideal: ${obterPesoIdeal(altura, sexo)}`)
         }
 
@@ -98,20 +103,20 @@
             let elementosExtremidades = []
 
             let obterExtremidades = vetor => {
+                let ultimaPosicao = vetor.length - 1;
                 elementosExtremidades = [vetor[0], vetor[ultimaPosicao]];
                 return elementosExtremidades;
             }
 
             for (let i = 0; i < 5; i++) vetor[i] = prompt(`Informe o ${i + 1}º elemento:`)
-            ultimaPosicao = vetor.length - 1;
             console.log(`Vetor informado: ${vetor}\nElementos das extremidades: ${obterExtremidades(vetor)}`)
         }
 
         //Exercício 8
         {
-            let simbolo = ""
             let converterSimbolo = numero => {
-                for (let i = 0; i < numero; i++) simbolo += "#"
+                let simbolo = ""
+                for (let i = 0; i < numero; i++) simbolo += "#" //Da pra usar repeat
                 return simbolo;
             }
 
@@ -121,9 +126,8 @@
 
         //Exercício 9
         {
-            let vetorRepeticao = []
-
             let repetirElemento = (elemento, repeticao) => {
+                let vetorRepeticao = []
                 for (let i = 0; i < repeticao; i++) vetorRepeticao.push(elemento);
                 return vetorRepeticao;
             }
@@ -234,7 +238,7 @@
         {
             let vetor = []
 
-            let ordenarVetor = vetor => vetor.sort(function(x, y) { return y - x })
+            let ordenarVetor = vetor => vetor.sort(function (x, y) { return y - x })
 
             for (let i = 0; i < 50; i++) {
                 vetor[i] = Math.floor(Math.random() * (51 - 1)) + 1;
@@ -276,7 +280,7 @@
             }
 
             for (let i = 0; i < 10; i++) vetor[i] = Math.floor(Math.random() * (11 - 1)) + 1
-            
+
             console.log(`Vetor inicial: ${vetor}\nVetor de números pares em posição pares: ${obterVetorPar(vetor)}`)
         }
 
@@ -294,7 +298,7 @@
         //Exercício 21
         {
             let ano = +prompt("Informe um ano:")
-            
+
             function ehBissexto(ano) {
                 if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) return true;
             }
