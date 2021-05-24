@@ -43,7 +43,7 @@
         {
             let nota = []
             let soma = 0
-            let media = (soma) => soma / 3;
+            let media = soma => soma / 3;
 
             for (let i = 0; i < 3; i++) {
                 nota[i] = +prompt(`Informe a ${i + 1}ª nota:`)
@@ -147,7 +147,7 @@
 
             function modificarVetor(vetor) {
                 vetor[1] = 10;
-                vetor[2] = 30
+                vetor[2] = 30;
                 return vetor;
             }
 
@@ -234,13 +234,13 @@
         {
             let vetor = []
 
-            let ordenarVetor = vetor => vetor.sort(obterDecrescente)
-            let obterDecrescente = (x, y) => y - x
+            let ordenarVetor = vetor => vetor.sort(function(x, y) { return y - x })
 
             for (let i = 0; i < 50; i++) {
                 vetor[i] = Math.floor(Math.random() * (51 - 1)) + 1;
             }
 
+            console.log(`Vetor original: ${vetor}`)
             console.log(`Vetor decrescente: ${ordenarVetor(vetor)}`)
         }
 
@@ -272,7 +272,7 @@
                 for (let i = 0; i < vetor.length; i += 2) {
                     if (vetor[i] % 2 == 0) vetorPar.push(vetor[i])
                 }
-                return vetorPar
+                return vetorPar;
             }
 
             for (let i = 0; i < 10; i++) vetor[i] = Math.floor(Math.random() * (11 - 1)) + 1
