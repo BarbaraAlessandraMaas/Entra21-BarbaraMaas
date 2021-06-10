@@ -9,7 +9,14 @@
         table,
         td,
         th {
-            border: 1px solid gray;
+            border: 1px solid rgb(214, 203, 203);
+            border-style: inset;
+        }
+        .titulo {
+            font-size: 22px;
+        }
+        .divisoes {
+            text-align: center;
         }
     </style>
 </head>
@@ -18,12 +25,12 @@
     <table>
         <thead>
             <tr>
-                <th colspan="5" bgcolor="#1dfe9f">Tabela de Serviços Mecânicos</th>
+                <th colspan="5" bgcolor="#1dfe9f" class="titulo">Tabela de Serviços Mecânicos</th>
             </tr>
         </thead>
         <tbody>
             <th rowspan="6" bgcolor="#08807f">Nacionais</th>
-            <tr>
+            <tr bgcolor="#c0c0c0" class="divisoes">
                 <td>Veículos</td>
                 <td>Serviço</td>
                 <td>Tempo Previsto</td>
