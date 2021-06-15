@@ -1,0 +1,23 @@
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
+body {
+    font-family: Source Sans Pro;
+    font-size: 100%;
+}
+
+#header {
+    text-align: center;
+}
+
+.animation {
+    animation-name: aparecer;
+    animation-duration: 3s;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
