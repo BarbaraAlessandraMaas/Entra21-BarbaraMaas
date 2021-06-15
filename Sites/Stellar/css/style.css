@@ -1,23 +1,40 @@
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
 body {
+    background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
     font-family: Source Sans Pro;
-    font-size: 100%;
+    font-size: 17pt;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 42pt;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.header p, a {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1em;
+    letter-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.65);
+}
+
+a:hover {
+    color: #ffffff;
+    border-bottom: none;
 }
 
 #header {
+    padding: 3.5em 1em 0.5em 1em;
     text-align: center;
 }
 
-.animation {
-    animation-name: aparecer;
-    animation-duration: 3s;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.logo {
+    display: block;
+    margin: 0 0 1.5em 0;
 }
