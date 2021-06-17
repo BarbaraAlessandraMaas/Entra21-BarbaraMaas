@@ -1,5 +1,26 @@
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
+.wrapper {
+    /* Define a div como sendo centralizada e com a margem especificada */
+    width: 64em;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
+}
+
+div {
+    /* Display de bloco da div */
+    display: block;
+}
+
+.logo img {
+    /* Define a margem da imagem */
+    display: block;
+    margin: 0 auto;
+    max-width: 75%;
+}
+
 body {
+    /* Muda o background e as características da fonte */
+    margin: 0;
     background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
     font-family: Source Sans Pro;
     font-size: 17pt;
@@ -7,34 +28,148 @@ body {
     line-height: 1.65;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 42pt;
-    font-weight: 300;
+h1 {
+    /* Muda a cor e a posição do título principal */
+    font-size: 3.25em;
+    margin: 0 0 0.25em 0;
+    line-height: 1.2;
     color: #ffffff;
+    display: block;
 }
 
-.header p, a {
+#header p {
+    /* Define as especificações do parágrafo inicial */
+    font-size: 1.25em;
+    letter-spacing: -0.025em;
+}
+
+p {
+    /* Muda a margem do primeiro parágrafo */
+    display: block;
+    margin: 0 0 2em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Define o padrão de espaçamento para os títulos */
+    font-size: auto;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+}
+
+.alt p, a {
+    /* Define a cor principal do primeiro parágrafo */
     color: rgba(255, 255, 255, 0.65);
-    font-size: 1em;
-    letter-spacing: 0;
 }
 
-a {
+.alt a {
+    /* Define a borda e a cor do link inicial */
     text-decoration: none;
     border-bottom: dotted 1px rgba(255, 255, 255, 0.65);
 }
 
 a:hover {
+    /* Define a animação ao passar o mouse pelo link */
     color: #ffffff;
     border-bottom: none;
 }
 
 #header {
-    padding: 3.5em 1em 0.5em 1em;
+    /* Define o texto inicial centralizado */
+    padding: 7em 5em 4em 5em;
     text-align: center;
 }
 
 .logo {
+    /* Define a margem da logo */
     display: block;
     margin: 0 0 1.5em 0;
+}
+
+#nav {
+    /* Define o estilo da nav */
+    color: #636363;
+    position: absolute;
+    width: 64em;
+    max-width: calc(100% - 4em);
+    padding: 1em;
+    background-color: #f7f7f7;
+    border-radius: 0.25em 0.25em 0 0;
+    cursor: default;
+    text-align: center;
+}
+
+#nav a {
+    /* define a cor e remove a borda dos itens da nav */
+    color: #636363;
+    text-decoration: none;
+}
+
+#nav ul li {
+    /* Centraliza os itens da nav e define o espaçamento */
+    display: inline-block;
+    margin: 0 0.35em;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#nav ul {
+    /* Edita as características dos itens da nav */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav a {
+    /* Ajusta a margem dos itens da nav */
+    display: inline-block;
+    height: 2.25em;
+    line-height: 2.25em;
+    padding: 0 1.25em;
+    border: 0;
+    border-radius: 8px;
+}
+
+#nav+#main {
+    /* Define o background e o começo das sections, logo abaixo da nav */
+    padding-top: 4.25em;
+    background-color: white;
+    border-radius: 0 0 0.25em 0.25em;
+}
+
+.main {
+    padding: 5em 5em 3em 5em;
+    color: #636363;
+}
+
+.spotlight {
+    display: flex;
+    align-items: center;
+    margin: 0 0 2em 0;
+}
+
+.content h2 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+header.major {
+    margin: 0 0 2em 0;
+}
+
+header.major h2:after {
+    background-color: #dddddd;
+    background-image: linear-gradient( 90deg, #efa8b0, #a89cc8, #8cc9f0);
+    display: block;
+    content: '';
+    width: 3.25em;
+    height: 2px;
+    margin: 0.7em 0 1em 0;
+    border-radius: 2px;
+}
+
+ul.actions {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
 }
