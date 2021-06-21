@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+
+body {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    padding: 0;
+    font-family: 'Mate SC', serif;
+    height: 100%;
+    font-weight: 500;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+}
+
+.header h1 a {
+    font-size: 30px;
+    padding-left: 0.7em;
+    text-decoration: none;
+    color: black;
+}
+
+.header h1 a:hover {
+    color: aquamarine;
+}
+
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Preenche toda a tela */
+    width: 100%;
+}
+
+.header div {
+    position: absolute;
+}
+
+.header .direita {
+    right: 0.5em;
+    padding: 1em;
+}
+
+.direita a {
+    padding: 3px 15px;
+    font-size: 27px;
+    color: black;
+}
+
+.direita a:hover {
+    color: black;
+    border-bottom: 3px solid aquamarine;
+    filter: blur();
+}
+
+footer {
+    bottom: 1em;
+    right: 0.5em;
+    position: absolute;
+    font-size: 27px;
+    padding-right: 0.5em;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: aquamarine;
+}
