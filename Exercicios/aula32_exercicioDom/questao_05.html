@@ -1,0 +1,17 @@
+<ul>
+    <li>Item 1</li>            
+    <li>Item 4</li>
+</ul>
+
+<!--Resposta-->
+<script>
+    let lista = document.querySelector("ul").lastElementChild;
+    let primeiraLi = document.createElement("li");
+    let segundaLi = document.createElement("li");
+
+    primeiraLi.textContent = "Item 2";
+    segundaLi.textContent = "Item 3";
+
+    lista.before(primeiraLi);
+    lista.before(segundaLi);
+</script>
