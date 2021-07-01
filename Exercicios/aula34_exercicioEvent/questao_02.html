@@ -1,0 +1,49 @@
+<head>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #div-legenda {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div-legenda">Adicione uma legenda nesse elemento</div>
+</body>
+
+<!--Resposta-->
+<script>
+    mostraLegenda(div, "bottom", "ola")
+
+    function mostraLegenda(elemento, posicao, texto) {
+        let div = document.createElement("div")
+        div.style.cssText = "position: absolute; color: red";
+
+        let coords = elemento.getBoundingClientRect();
+
+        switch (posicao) {
+            case "top":
+                break;
+            case "right":
+                break;
+            case "bottom":
+                div.style.left = coords.left + "px"
+                div.style.top = coords.top + "px"
+                div.innerHTML = texto
+
+                return div;
+            case "left":
+                break;
+            default:
+                break;
+        }
+    }
+</script>
