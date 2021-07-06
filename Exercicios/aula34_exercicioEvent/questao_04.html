@@ -1,0 +1,54 @@
+<head>
+    <style>
+        .campo {
+            position: relative;
+            width: 600px;
+            height: 300px;
+            background-color: green;
+            border: 10px solid black;
+        }
+
+        .bola {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="campo">
+        <div class="bola"></div>
+    </div>
+</body>
+
+<!--Resposta-->
+<script>
+    let campo = document.querySelector(".campo")
+    let bola = document.querySelector(".bola")
+
+    campo.addEventListener("click", (event) => {
+        let coordsCampo = event.currentTarget.getBoundingClientRect();
+
+        let coordsBola = {
+            top: event.clientY - coordsCampo.top - campo.clientTop - bola.clientHeight / 2,
+            left: event.clientX - coordsCampo.left - campo.clientLeft - bola.clientWidth / 2
+        };
+        // Prevenir passar da borda superior
+        if (coordsBola.top < 0) coordsBola.top = 0;
+        // Prevenir passar da borda esquerda
+        if (coordsBola.left < 0) coordsBola.left = 0;
+        // Prevenir passar da borda direita
+        if (coordsBola.left + bola.clientWidth > campo.clientWidth) {
+            coordsBola.left = campo.clientWidth - bola.clientWidth;
+        }
+        // Prevenir passar da borda inferior
+        if (coordsBola.top + bola.clientHeight > campo.clientHeight) {
+            coordsBola.top = campo.clientHeight - bola.clientHeight;
+        }
+        bola.style.left = coordsBola.left + 'px';
+        bola.style.top = coordsBola.top + 'px';
+    })
+</script>

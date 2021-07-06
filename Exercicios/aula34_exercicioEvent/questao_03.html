@@ -1,0 +1,14 @@
+<body>
+    <input type="button" id="esconder" value="Click para esconder/mostrar o texto" />
+    <div id="text">Texto</div>
+</body>
+
+<!--Resposta-->
+<script>
+    let botao = document.querySelector("#esconder")
+    let texto = document.querySelector("#text")
+
+    botao.addEventListener("click", () => {
+        texto.hidden = !texto.hidden
+    })
+</script>
