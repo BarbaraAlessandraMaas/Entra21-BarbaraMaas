@@ -20,14 +20,15 @@
     </li>
 </ul>
 
+<!--Resposta-->
 <script>
-    let lis = document.querySelectorAll("li");
+    let lis = document.querySelectorAll("ul li");
 
-    for (li of lis) {
-        let numero = document.querySelectorAll("li").length;
+    for (let li of lis) {
+        let numero = li.querySelectorAll("li");
 
-        if (numero) {
-            li.firstChild.data += `[${numero}]`;
+        if (numero.length) {
+            li.firstChild.data += `[${numero.length}]`;
         }
     }
 </script>

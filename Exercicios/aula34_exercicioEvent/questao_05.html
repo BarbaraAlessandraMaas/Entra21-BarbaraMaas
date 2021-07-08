@@ -70,5 +70,20 @@
 
 <!--Resposta-->
 <script>
-    
+    let container = document.querySelector("#container");
+    let divSelecionada;
+
+    pane.addEventListener("click", (event) => {
+        let target = event.target;
+        
+        remover(target);
+    })
+
+    function remover(div) {
+        if (divSelecionada) {
+            target.hidden = true
+        }
+
+        divSelecionada = div;
+    }
 </script>

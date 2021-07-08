@@ -1,34 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--Resposta-->
+<style>
+    .notificacao {
+        position: absolute;
+        color: red;
+    }
+</style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .notificacao {
-            position: absolute;
-            color: red;
-        }
-    </style>
-</head>
+<script>
+    mostrarNotificacao(300, 300, "oi")
 
-<body>
-    <!--Resposta-->
-    <script>
-        mostrarNotificacao(300, 300, "oi")
+    function mostrarNotificacao(topo = 10, direita = 10, texto) {
+        let div = document.createElement("div");
+        div.className = "notificacao"
 
-        function mostrarNotificacao(topo = 10, direita, texto) {
-            let div = document.createElement("div");
-            div.className = "notificacao"
+        div.style.top = topo + "px";
+        div.style.right = direita + "px";
+        div.textContent = texto;
 
-            div.style.top = topo + "px";
-            div.style.right = direita + "px";
-            div.textContent = texto;
-
-            document.body.append(div)
-        }
-    </script>
-</body>
-
-</html>
+        document.body.append(div)
+    }
+</script>
