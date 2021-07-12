@@ -1,0 +1,43 @@
+<!--Resposta-->
+<head>
+    <style>
+        div,
+        textarea {
+            width: 300px;
+            height: 200px;
+        }
+
+        div {
+            background-color: lightsteelblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        let div = document.querySelector("div");
+
+        div.addEventListener("click", () => {
+            let textarea = document.createElement("textarea");
+            div.replaceWith(textarea);
+
+            textarea.value = div.innerHTML
+
+            textarea.addEventListener("blur", () => {
+                div.innerHTML = textarea.value;
+                textarea.replaceWith(div);
+            })
+
+            textarea.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    textarea.blur();
+                }
+            })
+
+            div.replaceWith(textarea);
+            textarea.focus();
+        })
+    </script>
+</body>
