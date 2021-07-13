@@ -1,14 +1,47 @@
-<!-- Exercício
-Crie um página da web que permita receber um valor inicial
-de depósito, a quantidade de meses que esse dinheiro ficará
-depositado e a porcentagem de juros ao ano.
-Mostre quanto o dinheiro rendeu nesse período.
-O resultado deve ser atualizado conforme os campos forem preenchidos,
-utilizando o evento input.
-Fórmula:
-resultado = Math.round(inicial * (1 + juros * anos))
+<!DOCTYPE html>
+<html lang="pt-br">
 
-Onde:
-inicial - valor inicial.
-juros - porcentagem de juros. Ex.: 10%.
-anos - tempo que o valor ficará depositado. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 04</title>
+</head>
+
+<!--Resposta-->
+<body>
+    <label for="valorInicial"> Valor Inicial:
+        <input type="number" id="valorInicial" value="10000">
+    </label>
+    <br><br>
+    <label for="meses"> Número de Meses:
+        <input type="number" id="meses" value="12">
+    </label>
+    <br><br>
+    <label for="juros"> Porcentagem de Juros:
+        <input type="number" id="juros" value="5">
+    </label>
+    <br>
+    <p id="resultado">Resultado: R$</p>
+
+    <script>
+        const valorInicial = document.querySelector("#valorInicial");
+        const meses = document.querySelector("#meses");
+        const juros = document.querySelector("#juros");
+
+        function calcularResultado() {
+            const inicial = +valorInicial.value;
+            const anos = +meses.value / 12;
+            const juro = +juros.value / 100;
+
+            let resultado = Math.round(inicial * (1 + juro * anos));
+
+            document.querySelector("#resultado").textContent = "Resultado: R$ " + resultado;
+        }
+
+        valorInicial.addEventListener("input", calcularResultado)
+        meses.addEventListener("input", calcularResultado)
+        juros.addEventListener("input", calcularResultado)
+    </script>
+</body>
+
+</html>

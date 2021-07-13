@@ -32,7 +32,7 @@
             </li>
             <li>
                 <label for="phone">Telefone:</label>
-                <input type="number" name="phone" id="phone" required maxlength="15">
+                <input type="tel" name="phone" id="phone" required maxlength="15" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}">
             </li>
             <li>
                 <label for="comment">Comentário:</label>
@@ -44,17 +44,14 @@
         </ul>
     </form>
 
+    <!--Resposta-->
     <script>
-        /* Tente enviar seu formulário - ele deve se recusar a enviar até que as restrições acima sejam 
-        seguidas e fornecer mensagens de erro adequadas. Para ajudar, você pode querer adicionar alguns 
-        estilos CSS simples para mostrar quando um campo de formulário é válido ou inválido.
-        */
+        let form = document.querySelector("form");
+        let email = form.email;
 
-        let form = document.querySelector("form")
-
-        form.addEventListener("submit", (event) => {
-            if (!form.email.value.includes("@")) {
-                alert("E-mail Inválido!")
+        email.addEventListener("input", (event) => {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("Email Inválido!");
             }
         })
     </script>
