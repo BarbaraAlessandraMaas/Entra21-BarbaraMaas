@@ -25,10 +25,10 @@
     let lis = document.querySelectorAll("ul li");
 
     for (let li of lis) {
-        let numero = li.querySelectorAll("li");
+        let descendentes = li.querySelectorAll("li");
 
-        if (numero.length) {
-            li.firstChild.data += `[${numero.length}]`;
+        if (descendentes.length) {
+            li.firstChild.data += `[${descendentes.length}]`;
         }
     }
 </script>

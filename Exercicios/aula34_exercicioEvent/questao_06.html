@@ -37,5 +37,21 @@
 
 <!--Resposta-->
 <script>
-    
+    let tree = document.querySelector(".tree");
+    let flag = true;
+
+    tree.addEventListener("click", (e) => {
+        let elemento = e.target;
+        if (elemento.tagName === "LI") {
+            if (flag == true) {
+                elemento.querySelector("ul").hidden = true;
+                flag = false;
+            } else {
+                elemento.querySelector("ul").hidden = "";
+                flag = true;
+            }
+        } else {
+            return;
+        }
+    })
 </script>
