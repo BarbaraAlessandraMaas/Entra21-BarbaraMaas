@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 03</title>
+</head>
+
+<body>
+    <script>
+        let ano = 2012,
+            mes = 2;
+        obtemUltimoDiaMes(ano, mes + 1);
+
+        function obtemUltimoDiaMes(ano, mes) {
+            let data = new Date(ano, mes, 0).getDate();
+            console.log(data);
+        }
+    </script>
+</body>
+
+</html>

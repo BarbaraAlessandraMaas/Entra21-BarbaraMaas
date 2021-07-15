@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 06</title>
+</head>
+
+<body>
+    <script>
+        formatDate(new Date(new Date - 1)) // agora
+        formatDate(new Date(new Date - 30 * 1000)) // 30 segundos atras
+        formatDate(new Date(new Date - 5 * 60 * 1000)) // 5 minutos atrás
+
+        function formatDate(data) {
+            let dataAtual = new Date();
+            dataAtual.get
+
+            if ((dataAtual.getSeconds() - data.getSeconds() < 1) && (dataAtual.getMinutes() == data.getMinutes())) {
+                console.log("Agora");
+            } else if ((dataAtual.getMinutes() - data.getMinutes() < 1) && dataAtual.getHours() == data.getHours()) {
+                console.log(`${dataAtual.getSeconds() - data.getSeconds()} segundos atrás`)
+            } else if (dataAtual.getHours() - data.getHours() < 1) {
+                console.log(`${dataAtual.getMinutes() - data.getMinutes()} minutos atrás`)
+            }
+        }
+    </script>
+</body>
+
+</html>
