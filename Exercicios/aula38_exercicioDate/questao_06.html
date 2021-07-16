@@ -12,17 +12,19 @@
         formatDate(new Date(new Date - 1)) // agora
         formatDate(new Date(new Date - 30 * 1000)) // 30 segundos atras
         formatDate(new Date(new Date - 5 * 60 * 1000)) // 5 minutos atrás
+        formatDate(new Date(new Date - 24 * 60 * 60 * 1000)) // dia anterior
 
         function formatDate(data) {
             let dataAtual = new Date();
-            dataAtual.get
 
             if ((dataAtual.getSeconds() - data.getSeconds() < 1) && (dataAtual.getMinutes() == data.getMinutes())) {
                 console.log("Agora");
             } else if ((dataAtual.getMinutes() - data.getMinutes() < 1) && dataAtual.getHours() == data.getHours()) {
-                console.log(`${dataAtual.getSeconds() - data.getSeconds()} segundos atrás`)
+                console.log(`${dataAtual.getSeconds() - data.getSeconds()} segundos atrás`);
             } else if (dataAtual.getHours() - data.getHours() < 1) {
-                console.log(`${dataAtual.getMinutes() - data.getMinutes()} minutos atrás`)
+                console.log(`${dataAtual.getMinutes() - data.getMinutes()} minutos atrás`);
+            } else {
+                console.log(data.getDate()+"-"+data.getMonth()+"-"+data.getFullYear()+" "+data.getHours()+":"+data.getMinutes());
             }
         }
     </script>
