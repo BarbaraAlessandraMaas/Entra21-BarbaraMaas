@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 01</title>
+</head>
+
+<body>
+    <script>
+        class Aluno {
+            constructor(matricula, nome, nota1, nota2, trabalho) {
+                this.matricula = matricula;
+                this.nome = nome;
+                this.nota1 = nota1;
+                this.nota2 = nota2;
+                this.trabalho = trabalho;
+            }
+
+            media() {
+                return ((this.nota1 * 3 + this.nota2 * 3 + this.trabalho * 2) / 8).toFixed(2);
+            }
+
+            final() {
+                const media = this.media();
+                media >= 6 ? console.log(`Média: ${media}\nAprovado!`) : console.log(`Média: ${media}\nReprovado!`)
+            }
+        }
+
+        //Teste aluno aprovado
+        let alunoAprovado = new Aluno("123", "Nome1", 10, 10, 10);
+        alunoAprovado.final();
+
+        //Teste luno reprovado
+        let alunoReprovado = new Aluno("456", "Nome2", 5, 5, 5);
+        alunoReprovado.final();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 02</title>
+</head>
+
+<body>
+    <script>
+        class Pessoa {
+            constructor(nome, telefone) {
+                this.nome = nome;
+                this.telefone = telefone;
+            }
+        }
+
+        class Agenda {
+
+            constructor() {
+                this.lista = []
+            }
+
+            armazenaPessoa(nome, telefone) {
+                if (this.lista.length < 10) {
+                    this.lista.push(new Pessoa(nome, telefone));
+                    console.log("Pessoa adicionada com sucesso!")
+                } else {
+                    console.log("O número máximo de pessoas que cabem na agenda são 10. Limite Excedido!");
+                }
+            }
+
+            removePessoa(nome) {
+                let index = this.lista.findIndex(pessoa => pessoa.nome === nome);
+                
+                if (index != -1) {
+                    this.lista.splice(index, 1);
+                    console.log("Pessoa removida com sucesso!")
+                } else {
+                    console.log("A pessoa informada não consta na agenda!")
+                }
+            }
+
+            buscaPessoa(nome) {
+                let index = this.lista.findIndex(pessoa => pessoa.nome === nome);
+                
+                if (index != -1) {
+                    console.log(`O número de telefone de ${this.lista[index].nome} é ${this.lista[index].telefone}`)
+                } else {
+                    console.log("A pessoa informada não consta na agenda!")
+                }
+            }
+
+            imprimeAgenda() {
+                if (!this.lista.length) {
+                    console.log("Não existe pessoas na agenda!")
+                }
+
+                for (const pessoa of this.lista) {
+                    console.log(`Nome: ${pessoa.nome} | Telefone: ${pessoa.telefone}`)
+                }
+            }
+
+            imprimePessoa(indice) {
+                if (indice >= 10 || !this.lista.indexOf(indice)) {
+                    
+                }
+                let index = this.lista.indexOf(indice);
+                console.log(this.lista[index])
+            }
+        }
+
+        let agenda = new Agenda();
+        agenda.armazenaPessoa("Pessoa1", "(47) 9 9999-9999");
+        agenda.armazenaPessoa("Pessoa2", "(47) 9 8888-8888");
+        agenda.armazenaPessoa("Pessoa3", "(47) 9 7777-7777");
+        agenda.removePessoa("Pessoa1");
+        agenda.buscaPessoa("Pessoa2");
+        agenda.imprimeAgenda();
+    </script>
+</body>
+
+</html>
