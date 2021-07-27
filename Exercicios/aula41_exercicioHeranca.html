@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 41 - Exercício Herança</title>
+</head>
+
+<body>
+    <script>
+        //Herança
+
+        //Exercício 01
+        {
+            class Animal {
+                constructor(nome) {
+                    this.nome = nome;
+                }
+            }
+
+            class Coelho extends Animal {
+                constructor(nome) {
+                    super(nome);
+                    this.criadoEm = Date.now();
+                }
+            }
+
+            let coelho = new Coelho("Coelho Branco")
+            alert(coelho.nome)
+        }
+
+        //Exercício 02
+        {
+            class Relogio {
+                constructor(formato) {
+                    this.formato = formato
+                }
+                renderizar() {
+                    let data = new Date()
+                    let horas = data.getHours()
+                    if (horas < 10) horas = "0" + horas
+                    let minutos = data.getMinutes()
+                    if (minutos < 10) minutos = "0" + minutos
+                    let segundos = data.getSeconds()
+                    if (segundos < 10) segundos = "0" + segundos
+                    let resultado = this.formato
+                        .replace("h", horas)
+                        .replace("m", minutos)
+                        .replace("s", segundos)
+
+                    console.log(resultado)
+                }
+                parar() {
+                    clearInterval(this.timer)
+                }
+                comecar() {
+                    this.renderizar()
+                    this.timer = setInterval(() => this.renderizar(), 1000)
+                }
+            }
+
+            class RelogioPrecisao extends Relogio {
+                constructor(formato, tempo) {
+                    super(formato);
+                    this.tempo = tempo;
+                }
+
+                comecar() {
+                    super.renderizar();
+                    return setInterval(() => this.renderizar(), this.tempo)
+                }
+            }
+
+            let timer1 = new RelogioPrecisao("h:m:s", 2000)
+            //timer1.comecar()
+        }
+
+        //Exercício 03
+        {
+            // 3) Crie a classe Imovel, que possui um endereço e um preço.
+            //     a.crie uma classe Novo, que herda Imovel e possui um adicional no preço.Crie
+            // métodos de acesso e impressão deste valor adicional.
+            //     b.crie uma classe Velho, que herda Imovel e possui um desconto no preço.Crie
+            // métodos de acesso e impressão para este desconto.
+
+            // Ambas as classes Novo e Velho devem implementar um método calculaTotal() que informa
+            // o valor com o adicional ou com o desconto.
+
+            class Imovel {
+                constructor(endereco, preco) {
+                    this.endereco = endereco;
+                    this.preco = preco;
+                }
+            }
+
+            class Novo extends Imovel {
+                constructor(endereco, preco, adicional) {
+                    super(endereco);
+                    super(preco);
+                    this.adicional = adicional;
+                }
+
+                get valorAdicional() {
+                    return this.adicional;
+                }
+
+                calculaTotal() {
+                    if(!isNaN(valorAdicional) && !isNaN(preco)) {
+                        return preco + valorAdicional;
+                    }
+                    return "O valor informado não é um número!"
+                }
+
+                impressao() {
+                    return `R$ ${valorTotal()}`
+                }
+            }
+
+            class Velho extends Imovel {
+                constructor(endereco, preco, desconto) {
+                    super(endereco);
+                    super(preco);
+                    this.desconto = desconto;
+                }
+            }
+        }
+
+        //Herança prototypal
+
+        //Exercício 01
+        {
+            //1) Analise o código abaixo e informe quais valores serão apresentados no processo
+            let animal = {
+                pula: null
+            }
+            let coelho = {
+                __proto__: animal,
+                pula: true
+            }
+            console.log(coelho.pula) // true
+            delete coelho.pula
+            console.log(coelho.pula) // null
+            delete animal.pula
+            console.log(coelho.pula) // undefinded
+        }
+    </script>
+</body>
+
+</html>
