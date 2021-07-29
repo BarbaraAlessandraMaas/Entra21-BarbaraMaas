@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 03</title>
+</head>
+
+<body>
+    <script>
+        class Produto {
+            constructor(nomeLoja, preco, descricao) {
+                this.nomeLoja = nomeLoja;
+                this.preco = preco;
+                this.descricao = descricao;
+            }
+
+            getDescricao() {
+                return "Produto de Informática"
+            }
+        }
+
+        class Mouse extends Produto {
+            constructor(nomeLoja, preco, descricao, tipo) {
+                super(nomeLoja, preco, descricao);
+                this.tipo = tipo;
+            }
+
+            getDescricao() {
+                return `Descrição: ${this.descricao}\nTipo: ${this.tipo}`;
+            }
+        }
+
+        class Livro extends Produto {
+            constructor(nomeLoja, preco, descricao, autor) {
+                super(nomeLoja, preco, descricao);
+                this.autor = autor;
+            }
+
+            getDescricao() {
+                return `Descrição: ${this.descricao}\nAutor: ${this.autor}`;
+            }
+        }
+
+        let carrinho = [
+            new Mouse("loja1", 83, "descricao1", "mouse1"),
+            new Livro("loja2", 52, "descricao2", "livro1"),
+            new Mouse("loja3", 60, "descricao3", "mouse2"),
+            new Livro("loja4", 97, "descricao4", "livro2"),
+            new Mouse("loja5", 67, "descricao5", "mouse3")
+        ];
+
+        for (const produto of carrinho) {
+            console.log(produto.getDescricao());
+        }
+
+    </script>
+</body>
+
+</html>

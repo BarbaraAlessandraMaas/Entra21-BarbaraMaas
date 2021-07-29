@@ -68,7 +68,7 @@
 
                 comecar() {
                     super.renderizar();
-                    return setInterval(() => this.renderizar(), this.tempo)
+                    return setInterval(() => super.renderizar(), this.tempo)
                 }
             }
 
@@ -95,35 +95,45 @@
             }
 
             class Novo extends Imovel {
+                #adicional;
+
                 constructor(endereco, preco, adicional) {
-                    super(endereco);
-                    super(preco);
-                    this.adicional = adicional;
+                    super(endereco, preco);
+                    this.#adicional = adicional;
                 }
 
-                get valorAdicional() {
-                    return this.adicional;
+                get adicional() {
+                    return this.#adicional;
+                }
+
+                set adicional(valor){
+                    this.#adicional = valor;
                 }
 
                 calculaTotal() {
-                    if(!isNaN(valorAdicional) && !isNaN(preco)) {
-                        return preco + valorAdicional;
-                    }
-                    return "O valor informado não é um número!"
+                    return this.preco + adicional;
                 }
 
                 impressao() {
-                    return `R$ ${valorTotal()}`
+                    return `R$ ${calculaTotal()}`
                 }
             }
 
             class Velho extends Imovel {
                 constructor(endereco, preco, desconto) {
-                    super(endereco);
-                    super(preco);
+                    super(endereco, preco);
                     this.desconto = desconto;
                 }
             }
+
+            let novo = new Novo("sla", 500, 50);
+            novo.calculaTotal();
+            novo.impressao();
+        }
+
+        //Exercício 04
+        {
+            
         }
 
         //Herança prototypal
