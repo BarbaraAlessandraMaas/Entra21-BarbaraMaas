@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 04</title>
+</head>
+
+<body>
+    <script>
+        // 1) Crie uma função somar(n1, n2) que some dois números caso o resultado seja par a função deve lançar um erro OddNumberError que
+        // tem a mensagem "O número é ímpar". O script deve chamar a função e mostrar o resultado ou o erro. Após a execução da função
+        // deve ser mostrado uma mensagem "Finalizando o programa...".
+
+        class OddNumberError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = OddNumberError;
+            }
+        }
+
+        function somar(n1, n2) {
+            if ((n1 + n2) % 2 == 0) {
+                throw new OddNumberError("O número é par!");
+            }
+        }
+        
+        try {
+            somar(2, 2);
+        } catch (e) {
+            console.log(e.message);
+        }
+    </script>
+</body>
+
+</html>
