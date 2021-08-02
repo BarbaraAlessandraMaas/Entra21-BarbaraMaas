@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 01</title>
+</head>
+
+<body>
+    <script>
+        class OddNumberError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "OddNumberError";
+            }
+        }
+
+        function somar(n1, n2, cb) {
+            setTimeout(() => {
+                const resultado = n1 + n2;
+                if (resultado % 2 !== 0) {
+                    cb(new OddNumberError("O valor é ímpar"));
+                } else {
+                    cb(null, resultado);
+                }
+            }, 2000);
+        }
+        somar(2, 3, (error, resultado) => {
+            if (error) {
+                console.log(`A operação falhou! ${error.message}`);
+            } else {
+                console.log(`A operação foi bem sucedida! O número ${resultado} é par`);
+            }
+        });
+    </script>
+</body>
+
+</html>

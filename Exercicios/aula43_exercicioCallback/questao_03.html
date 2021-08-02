@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 03</title>
+</head>
+
+<body>
+    <script>
+        const listaPessoas = [
+            {
+                nome: "João",
+                idade: 25,
+                email: "joao@email.com"
+            },
+            {
+                nome: "Pedro",
+                idade: 33,
+                email: "pedro@email.com"
+            },
+            {
+                nome: "Marcos",
+                idade: 16,
+                email: "marcos@email.com"
+            }
+        ];
+        class UserNotFoundError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "UserNotFoundError";
+            }
+        }
+        function obtemUsuarioPeloNome(nome, cb) {
+            setTimeout(() => {
+                const usuario = listaPessoas.find(pessoa => pessoa.nome === nome);
+                if (!usuario) {
+                    cb(new UserNotFoundError("Usuário não está cadastrado"));
+                } else {
+                    cb(null, usuario);
+                }
+            }, 3000);
+        }
+        obtemUsuarioPeloNome("Pedro", (error, pessoa) => {
+            if (error) {
+                console.log(`Ocorreu um erro! ${error.message}.`);
+            } else {
+                console.log(`Usuário encontrado:\nnome: ${pessoa.nome}\nidade: ${pessoa.idade}\nemail: ${pessoa.email}.`);
+            }
+        });
+    </script>
+</body>
+
+</html>

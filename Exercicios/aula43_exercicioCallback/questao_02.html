@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 02</title>
+</head>
+
+<body>
+    <script>
+        function dobrarEm5Segundos(numero, cb) {
+            setTimeout(() => {
+                if (isNaN(numero)) {
+                    cb(new TypeError("O valor precisa ser numérico"));
+                } else {
+                    const dobro = numero * 2;
+                    cb(null, dobro);
+                }
+            }, 5000);
+        }
+        dobrarEm5Segundos("a", (error, resultado) => {
+            if (error) {
+                console.log(`A operação falhou! ${error.message}.`);
+            } else {
+                console.log(`A operação foi bem sucedida! O resultado é ${resultado}.`);
+            }
+        });
+    </script>
+</body>
+
+</html>
