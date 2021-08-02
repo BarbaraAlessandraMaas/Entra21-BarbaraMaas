@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 04</title>
+</head>
+
+<body>
+    <script>
+        const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
+
+        (async () => {
+            for (let i = 0; i < 3; i++) {
+                await delay();
+                console.log(`${i + 1}s`);
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -9,21 +9,49 @@
 
 <body>
     <script>
-        function somar(n1, n2) {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    const resultado = n1 + n2;
-                    if (resultado % 2 !== 0) {
-                        reject(new Error("O valor é ímpar"));
-                    } else {
-                        resolve(resultado);
-                    }
-                }, 2000);
-            })
+        //Promise
+        {
+            function somar(n1, n2) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const resultado = n1 + n2;
+                        if (resultado % 2 !== 0) {
+                            reject(new Error("O valor é ímpar!"));
+                        } else {
+                            resolve(resultado);
+                        }
+                    }, 2000);
+                })
+            }
+            somar(2, 2)
+                .then(resultado => console.log(`A operação foi bem sucedida! O número ${resultado} é par!`))
+                .catch(error => console.log(`A operação falhou! ${error.message}`));
         }
-        somar(2, 2)
-            .then(resultado => console.log(`A operação foi bem sucedida! O número ${resultado} é par`))
-            .catch(error => console.log(`A operação falhou! ${error.message}`));
+
+        //Async-Await
+        {
+            function somar(n1, n2) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const resultado = n1 + n2;
+                        if (resultado % 2 !== 0) {
+                            reject(new Error("O valor é ímpar!"));
+                        } else {
+                            resolve(resultado);
+                        }
+                    }, 2000);
+                })
+            }
+            
+            (async () => {
+                try {
+                    let resultado = await somar(2, 2);
+                    console.log(`A operação foi bem sucedida! O número ${resultado} é par!`);
+                } catch (e) {
+                    console.log(`A operação falhou! ${e.message}`);
+                }
+            })();
+        }
     </script>
 </body>
 
