@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS produtos_pedidos;
+DROP TABLE IF EXISTS produtos;
+DROP TABLE IF EXISTS pedidos;
+
+CREATE TABLE IF NOT EXISTS produtos (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL UNIQUE,
+	preco numeric(7,2) NOT NULL CHECK (preco > 0)
+);
+
+CREATE TABLE IF NOT EXISTS pedidos (
+	id SERIAL PRIMARY KEY,
+	valor numeric(7,2) NOT NULL CHECK (valor > 0)
+);
+
+CREATE TABLE IF NOT EXISTS produtos_pedidos (
+	id_produto integer REFERENCES produtos,
+	id_pedido integer REFERENCES pedidos,
+	quantidade integer NOT NULL,
+	PRIMARY KEY (id_produto, id_pedido)
+);
