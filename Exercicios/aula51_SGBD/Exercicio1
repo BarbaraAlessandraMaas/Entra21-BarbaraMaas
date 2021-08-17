@@ -1,0 +1,58 @@
+DROP TABLE IF EXISTS contratos;
+DROP TABLE IF EXISTS imoveis;
+DROP TABLE IF EXISTS proprietarios;
+DROP TABLE IF EXISTS locatarios;
+
+CREATE TABLE IF NOT EXISTS locatarios (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL,
+	cpf text NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS proprietarios (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL,
+	cpf text NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS imoveis (
+	id SERIAL PRIMARY KEY,
+	numero_quartos integer NOT NULL,
+	numero_banheiros integer NOT NULL,
+	area numeric NOT NULL,
+	piscina boolean DEFAULT false,
+	churrasqueira boolean DEFAULT false,
+	id_proprietario integer NOT NULL REFERENCES proprietarios
+);
+
+CREATE TABLE IF NOT EXISTS contratos (
+	id_locatarios SERIAL REFERENCES locatarios,
+	id_imoveis SERIAL REFERENCES imoveis,
+	data_inicio date NOT NULL,
+	data_termino date NOT NULL,
+	dia_vencimento date NOT NULL,
+	valor numeric NOT NULL,
+	observacoes text,
+	PRIMARY KEY (id_locatarios, id_imoveis, data_inicio),
+	id_proprietarios integer NOT NULL REFERENCES proprietarios
+);
+
+INSERT INTO
+	proprietarios (nome, cpf)
+VALUES
+	('João', '111.111.111-11');
+	
+INSERT INTO
+	locatarios (nome, cpf)
+VALUES
+	('Pedro', '222.222.222-22');
+
+INSERT INTO
+	imoveis (numero_quartos, numero_banheiros, area, piscina, churrasqueira, id_proprietario)
+VALUES
+	(3, 2, 100, true, true, 1);
+
+INSERT INTO
+	contratos
+VALUES
+	(1, 1, '2021-08-16', '2021-08-17', '2021-08-18', 1000, 'Observações...', 1);

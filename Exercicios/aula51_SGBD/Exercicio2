@@ -1,0 +1,62 @@
+DROP TABLE IF EXISTS compras;
+DROP TABLE IF EXISTS livros;
+DROP TABLE IF EXISTS editoras;
+DROP TABLE IF EXISTS clientes;
+
+CREATE TABLE IF NOT EXISTS clientes (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL,
+	rua text NOT NULL,
+	numero integer NOT NULL,
+	cidade text NOT NULL,
+	estado character(2) NOT NULL,
+	numero_documento text NOT NULL UNIQUE,
+	tipo_pessoa text NOT NULL,
+	pontos integer NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS editoras (
+	id SERIAL PRIMARY KEY,
+	nome_gerente text NOT NULL,
+	rua text NOT NULL,
+	numero integer NOT NULL,
+	cidade text NOT NULL,
+	estado character(2),
+	telefone text NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS livros (
+	id SERIAL PRIMARY KEY,
+	nome_autor text NOT NULL,
+	assunto text NOT NULL,
+	quantidade_estoque integer NOT NULL,
+	id_editora integer REFERENCES editoras
+);
+
+CREATE TABLE IF NOT EXISTS compras (
+	id_clientes integer REFERENCES clientes,
+	id_livros integer REFERENCES livros,
+	data_compra date NOT NULL,
+	valor numeric NOT NULL,
+	PRIMARY KEY (id_clientes, id_livros, data_compra)
+);
+
+INSERT INTO
+	clientes (nome, rua, numero, cidade, estado, numero_documento, tipo_pessoa, pontos)
+VALUES
+	('Marcos', 'Rua Cliente', 120, 'Timbó', 'SC', '123', 'Pessoa Física', 20);
+	
+INSERT INTO
+	editoras (nome_gerente, rua, numero, cidade, estado, telefone)
+VALUES
+	('Arthur', 'Rua Editora', 130, 'Blumenau', 'SC', '47 98888-8888');
+	
+INSERT INTO
+	livros (nome_autor, assunto, quantidade_estoque, id_editora)
+VALUES
+	('Henrique', 'Assunto Livro', 5, 1);
+	
+INSERT INTO
+	compras
+VALUES
+	(1, 1, '17/08/2021', 150);

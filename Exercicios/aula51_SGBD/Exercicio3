@@ -1,0 +1,69 @@
+DROP TABLE IF EXISTS colaboradores_projetos;
+DROP TABLE IF EXISTS dependentes;
+DROP TABLE IF EXISTS colaboradores;
+DROP TABLE IF EXISTS projetos;
+DROP TABLE IF EXISTS departamentos;
+
+CREATE TABLE IF NOT EXISTS departamentos (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS projetos (
+	id SERIAL PRIMARY KEY,
+	data_inicio date NOT NULL,
+	data_termino date NOT NULL,
+	descricao text
+);
+
+CREATE TABLE IF NOT EXISTS colaboradores (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL,
+	horas_trabalhadas integer NOT NULL,
+	total_vendas numeric,
+	percentual_comissao numeric,
+	valor_hora numeric,
+	salario numeric,
+	tipo_colaborador text NOT NULL UNIQUE,
+	id_gerente SERIAL NOT NULL,
+	id_departamento integer REFERENCES departamentos
+);
+
+CREATE TABLE IF NOT EXISTS dependentes (
+	id SERIAL PRIMARY KEY,
+	nome text NOT NULL,
+	tipo_dependente text NOT NULL UNIQUE,
+	id_colaborador integer REFERENCES colaboradores
+);
+
+CREATE TABLE IF NOT EXISTS colaboradores_projetos (
+	id_colaborador integer REFERENCES colaboradores,
+	id_projeto integer REFERENCES projetos,
+	horas_trabalhadas integer NOT NULL,
+	PRIMARY KEY (id_colaborador, id_projeto)
+);
+
+INSERT INTO
+	departamentos (nome)
+VALUES
+	('Finanças');
+	
+INSERT INTO
+	projetos (data_inicio, data_termino)
+VALUES
+	('2021-08-16', '2021-08-17');
+	
+INSERT INTO
+	colaboradores (nome, horas_trabalhadas, tipo_colaborador, id_departamento)
+VALUES
+	('João', 8, 'Horista', 1);
+	
+INSERT INTO
+	dependentes (nome, tipo_dependente, id_colaborador)
+VALUES
+	('Pedro', 'Filho', 1);
+	
+INSERT INTO
+	colaboradores_projetos
+VALUES
+	(1, 1, 12);
