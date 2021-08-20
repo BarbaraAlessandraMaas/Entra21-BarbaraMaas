@@ -1,0 +1,170 @@
+DROP TABLE IF EXISTS vendas;
+
+CREATE TABLE IF NOT EXISTS vendas (
+	id_nf integer,
+	id_item integer,
+	cod_prod integer NOT NULL,
+	valor_unit numeric NOT NULL,
+	quantidade integer NOT NULL,
+	desconto numeric,
+	PRIMARY KEY (id_nf, id_item)
+);
+
+INSERT INTO
+	vendas
+VALUES
+	(1, 1, 1, 25.00, 10, 5),
+	(1, 2, 2, 13.00, 3, null),
+	(1, 3, 3, 15.00, 2, null),
+	(1, 4, 4, 10.00, 1, null),
+	(1, 5, 5, 30.00, 1, null),
+	(2, 1, 3, 15.00, 4, null),
+	(2, 2, 4, 10.00, 5, null),
+	(2, 3, 5, 30.00, 7, null),
+	(3, 1, 1, 25.00, 5, null),
+	(3, 2, 4, 10.00, 4, null),
+	(3, 3, 5, 30.00, 5, null),
+	(3, 4, 2, 13.50, 7, null),
+	(4, 1, 5, 30.00, 10, 15),
+	(4, 2, 4, 10.00, 12, 5),
+	(4, 3, 1, 25.00, 13, 5),
+	(4, 4, 2, 13.00, 15, 5),
+	(5, 1, 3, 15.00, 3, null),
+	(5, 2, 5, 30.00, 6, null),
+	(6, 1, 1, 25.00, 22, 15),
+	(6, 2, 3, 15.00, 25, 20),
+	(7, 1, 1, 25.00, 10, 3),
+	(7, 2, 2, 13.50, 10, 4),
+	(7, 3, 3, 15.00, 10, 4),
+	(7, 4, 5, 30.00, 10, 1);
+	
+-- a) Pesquise os itens que foram vendidos sem desconto. As colunas presentes no
+-- resultado da consulta são: ID_NF, ID_ITEM, COD_PROD E VALOR_UNIT.
+SELECT
+	id_nf,
+	id_item,
+	cod_prod,
+	valor_unit
+FROM
+	vendas
+WHERE
+	desconto IS NULL;
+	
+-- b) Pesquise os itens que foram vendidos com desconto. As colunas presentes no
+-- resultado da consulta são: ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT E O VALOR
+-- VENDIDO. OBS: O valor vendido é igual ao VALOR_UNIT -
+-- (VALOR_UNIT*(DESCONTO/100)).
+SELECT
+	id_nf,
+	id_item,
+	cod_prod,
+	valor_unit,
+	ROUND(valor_unit - (valor_unit * (desconto / 100)), 2) valor_vendido
+FROM
+	vendas
+WHERE
+	desconto IS NOT NULL;
+
+-- c) Altere o valor do desconto (para zero) de todos os registros onde este campo é nulo.
+UPDATE vendas SET desconto = 0 WHERE desconto IS NULL;
+
+SELECT
+	desconto
+FROM
+	vendas;
+
+-- d) Pesquise os itens que foram vendidos. As colunas presentes no resultado da consulta
+-- são: ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT, VALOR_TOTAL, DESCONTO,
+-- VALOR_VENDIDO. OBS: O VALOR_TOTAL é obtido pela fórmula: QUANTIDADE *
+-- VALOR_UNIT. O VALOR_VENDIDO é igual a VALOR_UNIT -
+-- (VALOR_UNIT*(DESCONTO/100)).
+SELECT
+	id_nf,
+	cod_prod,
+	valor_unit,
+	desconto,
+	ROUND(valor_unit - (valor_unit * (desconto / 100)), 2) valor_vendido,
+	ROUND(quantidade * valor_unit, 2) valor_total
+FROM
+	vendas;
+	
+-- e) Pesquise o valor total das NF e ordene o resultado do maior valor para o menor. As
+-- colunas presentes no resultado da consulta são: ID_NF, VALOR_TOTAL. OBS: O 
+-- VALOR_TOTAL é obtido pela fórmula: ∑ QUANTIDADE * VALOR_UNIT. Agrupe o
+-- resultado da consulta por ID_NF.
+SELECT
+	id_nf,
+	ROUND(quantidade * valor_unit, 2) valor_total
+FROM
+	vendas
+GROUP BY
+	id_nf,
+	valor_total
+ORDER BY
+	valor_total DESC;
+	
+-- f) Pesquise o valor vendido das NF e ordene o resultado do maior valor para o menor. As
+-- colunas presentes no resultado da consulta são: ID_NF, VALOR_VENDIDO. O 
+-- VALOR_VENDIDO é igual a ∑ VALOR_UNIT - (VALOR_UNIT*(DESCONTO/100)). Agrupe
+-- o resultado da consulta por ID_NF.
+SELECT
+	id_nf,
+	ROUND(valor_unit - (valor_unit * (desconto / 100)), 2) valor_vendido
+FROM
+	vendas
+GROUP BY
+	id_nf,
+	valor_vendido
+ORDER BY
+	valor_vendido DESC;
+
+-- g) Consulte o produto que mais vendeu no geral. As colunas presentes no resultado da
+-- consulta são: COD_PROD, QUANTIDADE. Agrupe o resultado da consulta por
+-- COD_PROD.
+SELECT
+	cod_prod,
+	MAX(quantidade) quantidade
+FROM
+	vendas
+GROUP BY
+	cod_prod
+LIMIT 1;
+
+-- h) Consulte as NF que foram vendidas mais de 10 unidades de pelo menos um produto.
+-- As colunas presentes no resultado da consulta são: ID_NF, COD_PROD, QUANTIDADE.
+-- Agrupe o resultado da consulta por ID_NF, COD_PROD.
+SELECT
+	id_nf,
+	cod_prod,
+	quantidade
+FROM
+	vendas
+WHERE
+	quantidade > 10
+GROUP BY
+	id_nf,
+	cod_prod,
+	quantidade
+ORDER BY
+	quantidade;
+	
+-- i) Pesquise o valor total das NF, onde esse valor seja maior que 500, e ordene o
+-- resultado do maior valor para o menor. As colunas presentes no resultado da consulta
+-- são: ID_NF, VALOR_TOT. OBS: O VALOR_TOTAL é obtido pela fórmula: ∑ QUANTIDADE
+-- * VALOR_UNIT. Agrupe o resultado da consulta por ID_NF.
+SELECT
+	id_nf,
+	ROUND(quantidade * valor_unit, 2) valor_total
+FROM
+	vendas
+WHERE
+	quantidade * valor_unit > 500
+ORDER BY
+	valor_total;
+
+-- j) Qual o valor médio dos descontos dados por produto. As colunas presentes no
+-- resultado da consulta são: COD_PROD, MEDIA. Agrupe o resultado da consulta por
+-- COD_PROD.
+SELECT
+	cod_prod,
+	() media
