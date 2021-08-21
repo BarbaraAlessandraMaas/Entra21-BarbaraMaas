@@ -66,12 +66,7 @@ WHERE
 	desconto IS NOT NULL;
 
 -- c) Altere o valor do desconto (para zero) de todos os registros onde este campo é nulo.
-UPDATE 
-	vendas 
-SET 
-	desconto = 0 
-WHERE 
-	desconto IS NULL;
+UPDATE vendas SET desconto = 0 WHERE desconto IS NULL;
 
 SELECT
 	desconto
