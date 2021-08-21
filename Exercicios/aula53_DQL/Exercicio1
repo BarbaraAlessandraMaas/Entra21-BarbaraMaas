@@ -66,7 +66,12 @@ WHERE
 	desconto IS NOT NULL;
 
 -- c) Altere o valor do desconto (para zero) de todos os registros onde este campo é nulo.
-UPDATE vendas SET desconto = 0 WHERE desconto IS NULL;
+UPDATE 
+	vendas 
+SET 
+	desconto = 0 
+WHERE 
+	desconto IS NULL;
 
 SELECT
 	desconto
@@ -80,11 +85,12 @@ FROM
 -- (VALOR_UNIT*(DESCONTO/100)).
 SELECT
 	id_nf,
+	id_item,
 	cod_prod,
 	valor_unit,
+	ROUND(quantidade * valor_unit, 2) valor_total,
 	desconto,
-	ROUND(valor_unit - (valor_unit * (desconto / 100)), 2) valor_vendido,
-	ROUND(quantidade * valor_unit, 2) valor_total
+	ROUND(valor_unit - (valor_unit * (desconto / 100)), 2) valor_vendido
 FROM
 	vendas;
 	
@@ -94,12 +100,11 @@ FROM
 -- resultado da consulta por ID_NF.
 SELECT
 	id_nf,
-	ROUND(quantidade * valor_unit, 2) valor_total
+	ROUND(sum(quantidade * valor_unit), 2) valor_total
 FROM
 	vendas
 GROUP BY
-	id_nf,
-	valor_total
+	id_nf
 ORDER BY
 	valor_total DESC;
 	
@@ -109,12 +114,11 @@ ORDER BY
 -- o resultado da consulta por ID_NF.
 SELECT
 	id_nf,
-	ROUND(valor_unit - (valor_unit * (desconto / 100)), 2) valor_vendido
+	ROUND(sum(valor_unit - (valor_unit * (desconto / 100))), 2) valor_vendido
 FROM
 	vendas
 GROUP BY
-	id_nf,
-	valor_vendido
+	id_nf
 ORDER BY
 	valor_vendido DESC;
 
@@ -123,11 +127,13 @@ ORDER BY
 -- COD_PROD.
 SELECT
 	cod_prod,
-	MAX(quantidade) quantidade
+	sum(quantidade) quantidade
 FROM
 	vendas
 GROUP BY
 	cod_prod
+ORDER BY
+	quantidade DESC
 LIMIT 1;
 
 -- h) Consulte as NF que foram vendidas mais de 10 unidades de pelo menos um produto.
@@ -136,17 +142,14 @@ LIMIT 1;
 SELECT
 	id_nf,
 	cod_prod,
-	quantidade
+	sum(quantidade) quantidade
 FROM
 	vendas
-WHERE
-	quantidade > 10
 GROUP BY
 	id_nf,
-	cod_prod,
-	quantidade
-ORDER BY
-	quantidade;
+	cod_prod
+HAVING
+	sum(quantidade) > 10;
 	
 -- i) Pesquise o valor total das NF, onde esse valor seja maior que 500, e ordene o
 -- resultado do maior valor para o menor. As colunas presentes no resultado da consulta
@@ -154,17 +157,50 @@ ORDER BY
 -- * VALOR_UNIT. Agrupe o resultado da consulta por ID_NF.
 SELECT
 	id_nf,
-	ROUND(quantidade * valor_unit, 2) valor_total
+	ROUND(sum(quantidade * valor_unit), 2) valor_total
 FROM
 	vendas
-WHERE
-	quantidade * valor_unit > 500
+GROUP BY
+	id_nf
+HAVING
+	sum(quantidade * valor_unit) > 500
 ORDER BY
-	valor_total;
+	valor_total DESC;
 
 -- j) Qual o valor médio dos descontos dados por produto. As colunas presentes no
 -- resultado da consulta são: COD_PROD, MEDIA. Agrupe o resultado da consulta por
 -- COD_PROD.
 SELECT
 	cod_prod,
-	() media
+	ROUND(avg(desconto), 2) media
+FROM
+	vendas
+GROUP BY
+	cod_prod;
+	
+-- k) Qual o menor, maior e o valor médio dos descontos dados por produto. As colunas
+-- presentes no resultado da consulta são: COD_PROD, MENOR, MAIOR, MEDIA. Agrupe
+-- o resultado da consulta por COD_PROD.
+SELECT
+	cod_prod,
+	MIN(desconto) menor,
+	MAX(desconto) maior,
+	ROUND(avg(desconto), 2) media
+FROM
+	vendas
+GROUP BY
+	cod_prod;
+	
+-- l) Quais as NF que possuem mais de 3 itens vendidos. As colunas presentes no resultado
+-- da consulta são: ID_NF, QTD_ITENS. OBS:: NÃO ESTÁ RELACIONADO A QUANTIDADE
+-- VENDIDA DO ITEM E SIM A QUANTIDADE DE ITENS POR NOTA FISCAL. Agrupe o
+-- resultado da consulta por ID_NF.
+SELECT
+	id_nf,
+	COUNT(id_item)quantidade_itens
+FROM
+	vendas
+GROUP BY
+	id_nf
+HAVING
+	COUNT(id_item) > 3;
