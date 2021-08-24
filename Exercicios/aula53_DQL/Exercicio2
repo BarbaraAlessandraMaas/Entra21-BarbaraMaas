@@ -45,8 +45,8 @@ INSERT INTO
 		salario
 	)
 VALUES
-	('Pedro', 'Gerente', '1990-02-11', '111.111.111-11', '1.231.231', 'Rua 1', '12343-123', 'Timbó', '(47) 9 8282-8282', 'Gerente', 10000),
-	('José', 'Gerente', '1992-03-01', '111.111.231-11', '1.111.231', 'Rua 1', '12233-123', 'Indaial', '(47) 9 8282-3282', 'Gerente', 20000);
+	('Pedro', 'Fontes', '1990-02-11', '111.111.111-11', '1.231.231', 'Rua 1', '12343-123', 'Timbó', '(47) 9 8282-8282', 'Gerente', 10000),
+	('José', 'Fontes', '1992-03-01', '111.111.231-11', '1.111.231', 'Rua 1', '12233-123', 'Indaial', '(47) 9 8282-3282', 'Gerente', 20000);
 
 -- Criando departamentos
 INSERT INTO
@@ -76,7 +76,7 @@ INSERT INTO
 		id_departamento
 	)
 VALUES
-	('Maria', 'Silva', '2000-02-11', '112.111.111-11', '1.231.777', 'Rua 1', '12343-123', 'Timbó', '(47) 9 8212-8282', 'Estagiário', 900, 2),
+	('Maria', 'Silva', '2000-02-11', '112.111.111-11', '1.231.777', 'Rua 1', '12343-123', 'Timbó', '(47) 9 8212-8282', 'Estagiário', 1400, 2),
 	('Mateus', 'Silva', '1995-02-11', '113.111.111-11', '1.232.888', 'Rua 1', '12343-101', 'Timbó', '(47) 9 8242-0282', 'Desenvolvedor Júnior', 2500, 2),
 	('João', 'Silva', '1995-02-11', '114.111.111-11', '1.112.231', 'Rua 1', '12343-113', 'Timbó', '(47) 9 8292-8282', 'Desenvolvedor Pleno', 2500, 2),
 	('Judas', 'Silva', '1995-02-11', '115.111.111-11', '1.555.231', 'Rua 1', '12343-142', 'Timbó', '(47) 9 8102-8282', 'Estagiário', 1000, 1);
@@ -91,7 +91,7 @@ FROM
 WHERE
 	salario > 1000
 ORDER BY
-	nome;
+	nome, sobrenome;
 	
 -- b) Liste o nome, sobrenome e a data de nascimento de todos os funcionários ordenado do mais novo 
 -- para o mais velho.
@@ -114,7 +114,8 @@ FROM
 SELECT
 	funcionarios.nome,
 	sobrenome,
-	departamentos.nome nome_departamento
+	departamentos.nome nome_departamento,
+	funcao
 FROM
 	funcionarios
 INNER JOIN
@@ -132,7 +133,7 @@ FROM
 INNER JOIN
 	departamentos
 ON
-	funcionarios.id = departamentos.id;
+	funcionarios.id = departamentos.id_gerente;
 
 -- f) Liste o total de salário pago para os funcionários de cada cada departamento.
 SELECT
@@ -155,14 +156,14 @@ FROM
 
 -- h) Liste o salário médio pago pela empresa.
 SELECT
-	ROUND(sum(salario) / COUNT (id), 2) salario_medio
+	ROUND(avg(salario), 2) salario_medio
 FROM
 	funcionarios;
 
 -- i) Liste o salário médio pago por cada departamento.
 SELECT
 	departamentos.nome,
-	ROUND(sum(salario) / COUNT (funcionarios.id), 2) salario_medio
+	ROUND(avg(salario), 2) salario_medio
 FROM
 	departamentos
 INNER JOIN
