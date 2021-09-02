@@ -144,7 +144,7 @@ async function getPostByUserId(req, res, next) {
         }
 
         const post = await Post.findAll({
-            where
+            where: { user_id: userId }
         });
 
         res.json(post);
