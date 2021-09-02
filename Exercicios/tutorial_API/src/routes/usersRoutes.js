@@ -24,4 +24,7 @@ router.delete("/:id", usersControllers.deleteUser);
 // Criar um post para um usuário
 router.post("/:id/posts", multer(multerConfig).single("image"), usersControllers.createPost);
 
+// Obter todos os posts de um usuário
+router.get("/:id/posts", usersControllers.getPostByUserId);
+
 module.exports = router;

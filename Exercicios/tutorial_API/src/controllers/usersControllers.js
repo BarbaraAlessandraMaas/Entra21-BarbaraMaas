@@ -1,4 +1,4 @@
-const { User } = require("../db/models");
+const { User, Post } = require("../db/models");
 
 async function getAllUsers(req, res, next) {
     try {
@@ -101,13 +101,53 @@ async function deleteUser(req, res, next) {
 }
 
 async function createPost(req, res, next) {
-    const userID = req.params.id;
+    const userId = req.params.id;
     const { title, content } = req.body;
     const file = req.file;
 
+    let image;
+    if (file) {
+        image = `${process.env.APP_URL}/static/${file.filename}`;
+    }
+
     try {
-        console.log(file);
-        res.end();
+        const user = await User.findOne({ where: { id: userId }});
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found!" })
+        }
+
+        const post = await Post.create({
+            title,
+            content,
+            image,
+            user_id: userId
+        });
+
+        res.status(201).json(post);
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ message: "Server error" });
+    }
+}
+
+async function getPostByUserId(req, res, next) {
+    const userId = req.params.id;
+
+    try {
+        const user = await User.findOne({
+            where: { id: userId }
+        });
+
+        if (!user) {
+            res.status(404).json({ message: "User not found!" });
+        }
+
+        const post = await Post.findAll({
+            where
+        });
+
+        res.json(post);
     } catch (e) {
         console.log(e);
         res.status(500).json({ message: "Server error" });
@@ -115,6 +155,7 @@ async function createPost(req, res, next) {
 }
 
 module.exports = {
+    getPostByUserId,
     getAllUsers,
     getUserById,
     createUser,
