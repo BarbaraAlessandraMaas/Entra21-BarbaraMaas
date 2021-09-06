@@ -1,0 +1,12 @@
+.container-funcional {
+    background-color: brown;
+}
+
+.container-funcional h2 {
+    color: white;
+}
+
+.container-funcional p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
