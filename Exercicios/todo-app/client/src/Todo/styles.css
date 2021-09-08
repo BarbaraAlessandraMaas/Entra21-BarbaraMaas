@@ -1,0 +1,65 @@
+.todo {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: rgb(202, 202, 202);
+    margin: 5px 0;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.completed {
+    background-color: #5CB85C;
+    color: rgb(202, 202, 202);
+}
+
+.todo p {
+    flex: 1;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.todo button {
+    height: 44px;
+    width: 44px;
+    border: none;
+    color: rgb(202, 202, 202);
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter .3s;
+}
+
+.todo button:hover {
+    filter: brightness(90%);
+}
+
+.edit-button {
+    background-color: #DBA216;
+}
+
+.remove-button {
+    background-color: #DB3916;
+}
+
+.save-button {
+    background-color: #458645;
+}
+
+.edit-input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: inherit;
+    color: inherit;
+    margin-right: 15px;
+}
+
+.edit-input:focus {
+    outline: none;
+}

@@ -1,0 +1,32 @@
+.todo-form {
+    display: flex;
+    gap: 5px;
+}
+
+.todo-form input {
+    background-color: rgb(202, 202, 202);
+    font-size: 22px;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.todo-form button {
+    height: 52px;
+    width: 52px;
+    box-sizing: border-box;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2F4375;
+    color: rgb(202, 202, 202);
+    border: none;
+    transition: filter .3s;
+}
+
+.todo-form button:hover {
+    filter: brightness(90%);
+}
