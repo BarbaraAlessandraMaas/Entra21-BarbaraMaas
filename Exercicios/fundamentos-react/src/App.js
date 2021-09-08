@@ -8,7 +8,10 @@ import { MembroFamilia } from './components/MembroFamilia';
 import { ListaAlunos } from './components/ListaAlunos';
 import { ManipulandoEventos } from './components/ManipulandoEventos';
 import { Relogio } from './components/Relogio';
-import { COntador } from './components/Contador';
+import { Contador } from './components/Contador';
+import { ComponentesControlados } from './components/ComponentesControlados';
+import { ParOuImpar } from './components/ParOuImpar';
+import { Notificacoes } from './components/Notificacoes';
 
 function App() {
   return (
@@ -47,11 +50,21 @@ function App() {
           <ManipulandoEventos />
         </Card>
         <Card titulo="Estado">
-          <COntador />
+          <Contador />
         </Card>
         <Card titulo="Estado e ciclos de vida">
           <Relogio />
         </Card>
+        <Card titulo="Componentes controlados">
+          <ComponentesControlados></ComponentesControlados>
+        </Card>
+        <Card titulo="Renderização condicional">
+          <ParOuImpar numero={10} />
+          <ParOuImpar numero={9} />
+          <hr/>
+          <Notificacoes notificacoes={["N1", "N2", "N3"]} />
+        </Card>
+
       </div>
     </div>
   );
