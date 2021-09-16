@@ -4,7 +4,7 @@ import { ScrollView, Text } from "react-native";
 export function UseCallbackScreen() {
     return (
         <ScrollView>
-            <Text>
+            {/* <Text>
                 Retorna um CALLBACK memoizado.
 
                 Recebe como argumentos um callback e um array. Segue o mesmo estilo do memo,
@@ -23,7 +23,7 @@ export function UseCallbackScreen() {
                 const callbackNaoAtualizado = React.useCallback(() => {
                     console.log('callbackNaoAtualizado:', contador);
                 }, []);
-            </Text>  
+            </Text>   */}
         </ScrollView>
     );
 }

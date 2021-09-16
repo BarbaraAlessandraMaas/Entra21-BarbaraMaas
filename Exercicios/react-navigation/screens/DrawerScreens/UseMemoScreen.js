@@ -4,7 +4,7 @@ import { ScrollView, Text } from "react-native";
 export function UseMemoScreen() {
     return (
         <ScrollView>
-            <Text>
+            {/* <Text>
                 Retorna um VALOR memoizado.
 
                 Memoização é uma técnica de otimização usada para aumentar o desempenho de 
@@ -19,7 +19,7 @@ export function UseMemoScreen() {
                 passada para o useMemo.
 
                 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
-            </Text>
+            </Text> */}
         </ScrollView>
     );
 }
